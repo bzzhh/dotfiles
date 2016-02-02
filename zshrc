@@ -33,3 +33,5 @@ export rvmsudo_secure_path=1
 export NVM_DIR="/home/steven/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

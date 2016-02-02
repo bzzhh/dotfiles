@@ -10,11 +10,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/LustyExplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-fugitive'
@@ -36,6 +35,12 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'genoma/vim-less'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'vim-scripts/AutoTag'
+Plugin '2072/PHP-Indenting-for-VIm'
+Plugin 'Rican7/php-doc-modded'
+Plugin 'shawncplus/phpcomplete.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -96,10 +101,7 @@ nmap <leader>j mA:Ack<space>
 nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
 nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
 
-let FILETAG=expand("./tags")
-if filereadable(FILETAG)
-  set tags=tags
-endif
+set tags=tags,./tags
 
 "airline
 let g:airline#extensions#branch#enabled = 1
@@ -137,3 +139,23 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 nmap <F7> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+"vim-namespace
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+"phpdoc
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocRange()<CR>
