@@ -41,6 +41,7 @@ Plugin 'vim-scripts/AutoTag'
 Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'Rican7/php-doc-modded'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'stephpy/vim-php-cs-fixer'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
