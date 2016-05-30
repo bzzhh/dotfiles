@@ -1,3 +1,5 @@
 .idea
 /tags
 *.swp
+play.php
+parameters.yml.orig

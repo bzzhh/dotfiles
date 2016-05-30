@@ -22,6 +22,7 @@ export PATH=$PATH:~/.composer/vendor/bin
 export PATH=$PATH:node_modules/.bin
 export PATH=$PATH:/opt/pulpo
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/opt/VSCode-linux-x64
 
 export SLIM_MODE='development'
 #export LARAVEL_ENV='dev'
@@ -35,3 +36,5 @@ export NVM_DIR="/home/steven/.nvm"
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+

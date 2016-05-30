@@ -13,7 +13,7 @@
 [status]
 	showUntrackedFiles = all
 [diff]
-	tool = vimdiff
+	tool = meld
 [merge]
 	tool = vimdiff
 [difftool]
@@ -22,3 +22,4 @@
 	editor = vim
 	excludesfile = /home/steven/.gitignore_global
     autocrlf = input
+	pager = diff-so-fancy | less --tabs=1,5 -R

@@ -10,7 +10,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/LustyExplorer'
+"Plugin 'vim-scripts/LustyExplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
@@ -29,7 +29,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mtth/scratch.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'xsbeats/vim-blade'
 Plugin 'tpope/vim-vinegar'
 Plugin 'majutsushi/tagbar'
@@ -40,7 +40,7 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'vim-scripts/AutoTag'
 Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'Rican7/php-doc-modded'
-Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'stephpy/vim-php-cs-fixer'
 
 call vundle#end()            " required
@@ -102,13 +102,14 @@ nmap <leader>j mA:Ack<space>
 nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
 nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
 
-set tags=tags,./tags
+"set tags=tags,./tags
 
 "airline
 let g:airline#extensions#branch#enabled = 1
 
 "syntastic
 let g:syntastic_php_checkers = ['php']
+let g:syntastic_javascript_checkers = ['eslint']
 
 nmap <silent> <leader>se :set spelllang=en spell!<CR>
 nmap <silent> <leader>sf :set spelllang=fr spell!<CR>
@@ -160,3 +161,21 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR>
+
+"php-cs-fixer
+let g:php_cs_fixer_level = "symfony"
+let g:php_cs_fixer_fixers_list = "align_double_arrow,align_equals,ordered_use"
+
+com! FormatJSON %!python -m json.tool
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
