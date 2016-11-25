@@ -18,6 +18,7 @@ Plugin 'bling/vim-airline'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'stephpy/vim-yaml'
 Plugin 'jnurmine/Zenburn'
@@ -29,7 +30,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mtth/scratch.vim'
 Plugin 'mattn/gist-vim'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'xsbeats/vim-blade'
 Plugin 'tpope/vim-vinegar'
 Plugin 'majutsushi/tagbar'
@@ -42,6 +42,10 @@ Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'Rican7/php-doc-modded'
 "Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'elmcast/elm-vim'
+Plugin 'mattn/emmet-vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -102,7 +106,7 @@ nmap <leader>j mA:Ack<space>
 nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
 nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
 
-"set tags=tags,./tags
+set tags=tags,./tags
 
 "airline
 let g:airline#extensions#branch#enabled = 1
@@ -179,3 +183,10 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+
+"let g:user_emmet_settings = {
+"\  'javascript' : {
+"\      'extends' : 'jsx',
+"\  },
+"\}
+

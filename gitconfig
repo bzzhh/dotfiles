@@ -7,6 +7,7 @@
   type = cat-file -t
   dump = cat-file -p
 	d = difftool
+  last = log -1 HEAD
 [user]
 	email = sjehann@gmail.com
 	name = Steven Jehannet
@@ -23,3 +24,5 @@
 	excludesfile = /home/steven/.gitignore_global
     autocrlf = input
 	pager = diff-so-fancy | less --tabs=1,5 -R
+[pull]
+#	rebase = preserve
