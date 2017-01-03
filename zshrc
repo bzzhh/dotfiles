@@ -15,3 +15,4 @@ alias vm="ssh vagrant@127.0.0.1 -p 2222"
 alias ducks='du -cksh * | sort -hr | head -n 15'
 
 export APP_ENV=dev
+
