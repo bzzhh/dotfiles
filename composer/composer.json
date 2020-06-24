@@ -1,8 +1,0 @@
-{
-    "require": {
-        "friendsofphp/php-cs-fixer": "^1.11",
-        "symfony/var-dumper": "^3.1",
-        "psy/psysh": "^0.7.2",
-        "dg/ftp-deployment": "^2.5"
-    }
-}
