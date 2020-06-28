@@ -64,6 +64,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   colored-man-pages
+  ranger
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -5,11 +5,13 @@ help:
 
 install: ## Installs dotfiles into current environment
 	@$(MAKE) DOTFILE=.config/autostart/Swap\ Esc.desktop install_file
+	@$(MAKE) DOTFILE=.config/ranger/rc.conf install_file
 	@$(MAKE) DOTFILE=.config/nvim/coc-settings.json install_file
 	@$(MAKE) DOTFILE=.config/nvim/init.vim install_file
 	@$(MAKE) DOTFILE=.config/xfce4/terminal/terminalrc install_file
 	@$(MAKE) DOTFILE=.gitconfig install_file
 	@$(MAKE) DOTFILE=.gitignore_global install_file
+	@$(MAKE) DOTFILE=.oh-my-zsh/custom/plugins
 	@$(MAKE) DOTFILE=.tmux/.tmux.conf install_file
 	@$(MAKE) DOTFILE=.Xmodmap install_file
 	@$(MAKE) DOTFILE=.zshenv install_file
@@ -25,11 +27,13 @@ install_file:
 
 retrieve-files: ## Synchronize files from local host to git repository
 	cp ~/.config/autostart/Swap\ Esc.desktop .config/autostart/Swap\ Esc.desktop
+	cp ~/.config/ranger/rc.conf .config/ranger/rc.conf
 	cp ~/.config/nvim/coc-settings.json .config/nvim/coc-settings.json
 	cp ~/.config/nvim/init.vim .config/nvim/init.vim
 	cp ~/.config/xfce4/terminal/terminalrc .config/xfce4/terminal/terminalrc
 	cp ~/.gitconfig .gitconfig
 	cp ~/.gitignore_global .gitignore_global
+	cp -r ~/.oh-my-zsh/custom/plugins .oh-my-zsh/custom/plugins
 	cp ~/.tmux/.tmux.conf .tmux/.tmux.conf
 	cp ~/.Xmodmap .Xmodmap
 	cp ~/.zshenv .zshenv
