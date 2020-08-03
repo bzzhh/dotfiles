@@ -8,5 +8,5 @@ Exec=/bin/bash -c "sleep 20; /usr/bin/xmodmap /home/$USER/.Xmodmap"
 OnlyShowIn=XFCE;
 StartupNotify=false
 Terminal=false
-Hidden=false
+Hidden=true
 

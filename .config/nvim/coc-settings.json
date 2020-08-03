@@ -1,12 +1,39 @@
 {
-  "languageserver": {
-    "golang": {
-        "command": "gopls",
-        "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-        "filetypes": ["go"]
-    }
-  },
-  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "markdown", "typescript"],
-  "prettier.tslintIntegration": true,
-  "tsserver.npm": "/home/steven/.npm_modules/bin/npm"
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "filetypes": [
+                "go"
+            ]
+        }
+    },
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "html",
+        "javascript",
+        "json",
+        "markdown",
+        "python",
+        "typescript",
+        "rescript"
+    ],
+    "eslint.filetypes": [
+        "javascript",
+        "json",
+        "typescript",
+        "typescriptreact",
+        "javascriptreact"
+    ],
+    "diagnostic.errorSign": "•",
+    "diagnostic.warningSign": "•",
+    "diagnostic.infoSign": "•",
+    "diagnostic.checkCurrentLine": true,
+    "prettier.tslintIntegration": true,
+    "tsserver.npm": "/home/steven/.npm_modules/bin/npm"
 }

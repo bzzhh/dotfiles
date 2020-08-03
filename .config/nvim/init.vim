@@ -1,6 +1,8 @@
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
+" Default highlight is better than polyglot
+let g:polyglot_disabled = ['python']
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 if !filereadable(vimplug_exists)
@@ -40,10 +42,16 @@ Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'aquach/vim-http-client'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-tsserver'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'easymotion/vim-easymotion'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'reasonml-editor/vim-reason-plus'
+" Plug 'ap/vim-css-color'
+Plug 'prettier/vim-prettier'
+Plug 'rnestler/michelson.vim'
+Plug 'duggiefresh/vim-easydir'
+Plug 'editorconfig/editorconfig-vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -71,6 +79,9 @@ Plug 'NLKNguyen/papercolor-theme'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
+" editorconfig
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_core_mode = 'external_command'
 
 " elixir
 Plug 'elixir-lang/vim-elixir'
@@ -84,7 +95,7 @@ Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " html
 "" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
+" Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
@@ -104,6 +115,9 @@ Plug 'def-lkb/ocp-indent-vim'
 "" PHP Bundle
 Plug 'arnaud-lb/vim-php-namespace'
 
+" python
+Plug 'davidhalter/jedi-vim'
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " rust
 " Vim racer
@@ -117,6 +131,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'amiralies/vim-rescript'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -454,7 +470,7 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "" netrw
 let g:netrw_browse_split = 4
 
-"" Shellcheck
+"" quickfix
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
 
@@ -469,10 +485,15 @@ augroup CursorLine
 augroup END
 
 "coc
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-phpls', 'coc-prettier', 'coc-python' ]
 
 " elixir
 
+" vim-airline
+let g:airline#extensions#virtualenv#enabled = 1
+
+" Syntax highlight
+let python_highlight_all = 1
 
 " go
 " vim-go
@@ -554,7 +575,7 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 
 " javascript
-let g:javascript_enable_domhtmlcss = 1
+" let g:javascript_enable_domhtmlcss = 1
 
 " ligo
 autocmd BufNewFile,BufRead *.ligo set syntax=pascal
@@ -577,8 +598,35 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " php
 
+" python
+" vim-python
+augroup vimrc-python
+  autocmd!
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+      \ formatoptions+=croq softtabstop=4
+      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+augroup END
+
+" jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "0"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#smart_auto_mappings = 0
+
+" ale
+:call extend(g:ale_linters, {
+    \'python': ['flake8'], })
+
 
 " rust
+let g:racer_cmd = "/home/steven/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:rustfmt_autosave = 1
 " Vim racer
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
@@ -781,3 +829,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+autocmd BufWritePre *.html,*.js,*.ts,*.tsx,*.css :Prettier

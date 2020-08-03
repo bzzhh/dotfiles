@@ -65,6 +65,8 @@ plugins=(
   git
   colored-man-pages
   ranger
+  zsh-pyenv
+  zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
