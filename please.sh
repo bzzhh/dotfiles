@@ -4,7 +4,8 @@ dotfiles=(
     .config/autostart/Swap\ Esc.desktop
     .config/ranger/rc.conf
     .config/nvim/init.vim
-    .config/nvim/coc-settings.json
+    .config/nvim/local_bundles.vim
+    .config/nvim/local_init.vim
     .config/xfce4/terminal/terminalrc
     .gitconfig
     .gitignore_global
@@ -41,7 +42,6 @@ select opt in "${options[@]}"
 do
     case $opt in
         "retrieve files")
-            echo "you chose choice 1"
             retrieve
             break
             ;;
