@@ -1,19 +1,8 @@
-" vim-bootstrap 2020-10-13 18:43:52
-
 "*****************************************************************************
 "" Vim-Plug core
 "*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-if has('win32')&&!has('win64')
-  let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
-else
-  let curl_exists=expand('curl')
-endif
-
-let g:vim_bootstrap_langs = "go,html,javascript,ocaml,php,python,rust,typescript"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-" let g:vim_bootstrap_theme = "molokai"
-let g:vim_bootstrap_frams = ""
+let curl_exists=expand('curl')
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -34,7 +23,6 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-let g:polyglot_disabled = ['python']
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
@@ -46,13 +34,23 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-Plug 'dense-analysis/ale'
+Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-" Plug 'tomasr/molokai'
-
+Plug 'aquach/vim-http-client'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc-tsserver'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+Plug 'easymotion/vim-easymotion'
+Plug 'itspriddle/vim-shellcheck'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'ap/vim-css-color'
+Plug 'prettier/vim-prettier'
+Plug 'rnestler/michelson.vim'
+Plug 'duggiefresh/vim-easydir'
+Plug 'editorconfig/editorconfig-vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -74,83 +72,63 @@ Plug 'xolox/vim-session'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-"*****************************************************************************
-"" Custom bundles
-"*****************************************************************************
+"" Color
+Plug 'NLKNguyen/papercolor-theme'
+
+" elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'carlosgaldino/elixir-snippets'
 
 " go
-"" Go Lang Bundle
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
-
 " html
-"" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
-Plug 'gko/vim-coloresque'
+" Plug 'hail2u/vim-css3-syntax'
+Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
 
 " javascript
-"" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
 
 
 " ocaml
-"" OCaml Bundle
 Plug 'def-lkb/ocp-indent-vim'
 
-
 " php
-"" PHP Bundle
+"Plug 'joonty/vdebug'
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
+Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
+Plug 'lumiliet/vim-twig', {'for': 'twig'} " twig
+Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
-Plug 'stephpy/vim-php-cs-fixer'
-
+Plug '2072/php-indenting-for-vim', {'for': 'php'}
+Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'} " php doc autocompletion 
 
 " python
-"" Python Bundle
 Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
-
 " rust
-" Vim racer
 Plug 'racer-rust/vim-racer'
 
 " Rust.vim
 Plug 'rust-lang/rust.vim'
 
-" Async.vim
-Plug 'prabirshrestha/async.vim'
-
-" Vim lsp
-Plug 'prabirshrestha/vim-lsp'
-
-" Asyncomplete.vim
-Plug 'prabirshrestha/asyncomplete.vim'
-
-" Asyncomplete lsp.vim
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-
 " typescript
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 Plug 'HerringtonDarkholme/yats.vim'
 
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's extra bundle
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
-endif
+" rescript
+Plug 'amiralies/vim-rescript'
 
 call plug#end()
 
 " Required:
 filetype plugin indent on
-
 
 "*****************************************************************************
 "" Basic Setup
@@ -204,8 +182,8 @@ set ruler
 set number
 
 let no_buffers_menu=1
-" colorscheme molokai
-
+set background=light
+silent! colorscheme PaperColor
 
 set mousemodel=popup
 set t_Co=256
@@ -226,17 +204,12 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
-
-
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
-
-au TermEnter * setlocal scrolloff=0
-au TermLeave * setlocal scrolloff=3
-
+set scrolloff=3
 
 "" Status bar
 set laststatus=2
@@ -261,7 +234,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-" let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'papercolor'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -283,6 +256,10 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
+" editorconfig
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_core_mode = 'external_command'
+"
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
@@ -303,7 +280,6 @@ let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
-
 
 "*****************************************************************************
 "" Commands
@@ -355,7 +331,6 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -449,10 +424,8 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>z :bp<CR>
 noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
+noremap <leader>s :bn<CR>
 
 "" Close buffer
 noremap <leader>c :bd<CR>
@@ -477,9 +450,33 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
 
+"" netrw
+let g:netrw_browse_split = 4
+
+"" quickfix
+au QuickFixCmdPost [^l]* nested cwindow
+au QuickFixCmdPost    l* nested lwindow
+
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
+" highlight current line
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+"coc
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-phpls', 'coc-prettier', 'coc-python' ]
+
+" elixir
+
+" vim-airline
+let g:airline#extensions#virtualenv#enabled = 1
+
+" Syntax highlight
+let python_highlight_all = 1
 
 " go
 " vim-go
@@ -492,6 +489,10 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_def_mapping_enabled=0
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
@@ -509,8 +510,10 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
+let g:go_fmt_autosave = 1
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd BufWritePre *.go :OR
 
 augroup completion_preview_close
   autocmd!
@@ -553,16 +556,18 @@ augroup END
 " for html files, 2 spaces
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
-
 " javascript
-let g:javascript_enable_domhtmlcss = 1
+" let g:javascript_enable_domhtmlcss = 1
+
+" ligo
+autocmd BufNewFile,BufRead *.ligo set syntax=pascal
+autocmd BufNewFile,BufRead *.religo set syntax=reason
 
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
 augroup END
-
 
 " ocaml
 " Add Merlin to rtp
@@ -573,33 +578,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 :call extend(g:ale_linters, {
     \'ocaml': ['merlin'], })
 
-
 " php
-" Phpactor plugin
-" Include use statement
-nmap <Leader>u :call phpactor#UseAdd()<CR>
-" Invoke the context menu
-nmap <Leader>mm :call phpactor#ContextMenu()<CR>
-" Invoke the navigation menu
-nmap <Leader>nn :call phpactor#Navigate()<CR>
-" Goto definition of class or class member under the cursor
-nmap <Leader>oo :call phpactor#GotoDefinition()<CR>
-nmap <Leader>oh :call phpactor#GotoDefinitionHsplit()<CR>
-nmap <Leader>ov :call phpactor#GotoDefinitionVsplit()<CR>
-nmap <Leader>ot :call phpactor#GotoDefinitionTab()<CR>
-" Show brief information about the symbol under the cursor
-nmap <Leader>K :call phpactor#Hover()<CR>
-" Transform the classes in the current file
-nmap <Leader>tt :call phpactor#Transform()<CR>
-" Generate a new class (replacing the current file)
-nmap <Leader>cc :call phpactor#ClassNew()<CR>
-" Extract expression (normal mode)
-nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-" Extract expression from selection
-vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-" Extract method from selection
-vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-
 
 " python
 " vim-python
@@ -625,38 +604,28 @@ let g:jedi#smart_auto_mappings = 0
 :call extend(g:ale_linters, {
     \'python': ['flake8'], })
 
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
-
-" Syntax highlight
-" Default highlight is better than polyglot
-let python_highlight_all = 1
-
 
 " rust
+let g:racer_cmd = "/home/steven/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:rustfmt_autosave = 1
 " Vim racer
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
-
 " typescript
 let g:yats_host_keyword = 1
 
-
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's local vim config
-if filereadable(expand("~/.config/nvim/local_init.vim"))
-  source ~/.config/nvim/local_init.vim
-endif
+" Prettier
+let g:prettier#autoformat_config_present = 1
 
 "*****************************************************************************
 "" Convenience variables
 "*****************************************************************************
+let g:airline_powerline_fonts = 1
+set mouse=a
 
 " vim-airline
 if !exists('g:airline_symbols')
@@ -693,3 +662,155 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+" coc.nvim default settings
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+"
+" no swap file
+set noswapfile
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+autocmd BufWritePre *.html,*.js,*.ts,*.tsx,*.css :Prettier

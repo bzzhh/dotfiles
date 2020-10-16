@@ -4,8 +4,6 @@ dotfiles=(
     .config/autostart/Swap\ Esc.desktop
     .config/ranger/rc.conf
     .config/nvim/init.vim
-    .config/nvim/local_bundles.vim
-    .config/nvim/local_init.vim
     .config/xfce4/terminal/terminalrc
     .gitconfig
     .gitignore_global
