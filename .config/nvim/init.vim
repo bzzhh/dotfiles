@@ -398,7 +398,7 @@ nmap <leader>y :History:<CR>
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " ale
@@ -474,7 +474,7 @@ augroup CursorLine
 augroup END
 
 "coc
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-phpls', 'coc-prettier', 'coc-python' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-phpls', 'coc-prettier', 'coc-snippets', 'coc-python' ]
 
 " elixir
 
