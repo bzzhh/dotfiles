@@ -26,10 +26,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
@@ -37,8 +35,6 @@ Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'aquach/vim-http-client'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-tsserver'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
@@ -46,11 +42,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'reasonml-editor/vim-reason-plus'
-Plug 'ap/vim-css-color'
 Plug 'prettier/vim-prettier'
-Plug 'rnestler/michelson.vim'
 Plug 'duggiefresh/vim-easydir'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'mhinz/vim-startify'
+Plug 'amiorin/vim-project'
+Plug 'neomake/neomake'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -79,25 +76,30 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'elixir-lang/vim-elixir'
 Plug 'carlosgaldino/elixir-snippets'
 
+" git
+Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify' " wrapper for git and display git diff in the left gutter
+Plug 'junegunn/gv.vim' " Display commits for project / file
+Plug 'rhysd/git-messenger.vim' " Display commit message for a precise line
+
 " go
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " html
-" Plug 'hail2u/vim-css3-syntax'
-Plug 'gorodinskiy/vim-coloresque'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
+" http
+Plug 'aquach/vim-http-client'
 
 " javascript
 Plug 'jelera/vim-javascript-syntax'
-
 
 " ocaml
 Plug 'def-lkb/ocp-indent-vim'
 
 " php
-"Plug 'joonty/vdebug'
+Plug 'vim-vdebug/vdebug'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
 Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
@@ -116,6 +118,9 @@ Plug 'racer-rust/vim-racer'
 
 " Rust.vim
 Plug 'rust-lang/rust.vim'
+
+" tezos
+Plug 'rnestler/michelson.vim'
 
 " typescript
 Plug 'leafgarland/typescript-vim'
@@ -203,8 +208,6 @@ else
   let g:indentLine_concealcursor = 0
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
-
-
 endif
 
 "" Disable the blinking cursor.
@@ -327,6 +330,9 @@ augroup vimrc-make-cmake
 augroup END
 
 set autoread
+
+" ligo
+autocmd BufNewFile,BufRead *.ligo set syntax=pascal
 
 "*****************************************************************************
 "" Mappings
@@ -578,8 +584,6 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 :call extend(g:ale_linters, {
     \'ocaml': ['merlin'], })
 
-" php
-
 " python
 " vim-python
 augroup vimrc-python
@@ -814,3 +818,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 autocmd BufWritePre *.html,*.js,*.ts,*.tsx,*.css :Prettier
+
+" project config - personnal file (not on my git repository)
+source $VIMCONFIG/projects.nvimrc
