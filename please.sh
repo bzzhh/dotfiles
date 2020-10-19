@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dotfiles=(
+    .composer/composer.json
     .config/autostart/Swap\ Esc.desktop
     .config/ranger/rc.conf
     .config/nvim/init.vim

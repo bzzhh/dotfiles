@@ -101,7 +101,6 @@ Plug 'def-lkb/ocp-indent-vim'
 " php
 Plug 'vim-vdebug/vdebug'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
 Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
 Plug 'lumiliet/vim-twig', {'for': 'twig'} " twig
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
@@ -402,7 +401,11 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " ale
+let g:ale_php_phpcs_executable='./vendor/bin/phpcs'
+let g:ale_php_php_cs_fixer_executable='./vendor/bin/php-cs-fixer'
+let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_linters = {}
+let g:ale_fix_on_save = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>

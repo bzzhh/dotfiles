@@ -46,7 +46,7 @@ syntax_style = manni
 # Keybindings: Possible values: emacs, vi.
 # Emacs mode: Ctrl-A is home, Ctrl-E is end. All emacs keybindings are available in the REPL.
 # When Vi mode is enabled you can use modal editing features offered by Vi in the REPL.
-key_bindings = emacs
+key_bindings = vi
 
 # Enabling this option will show the suggestions in a wider menu. Thus more items are suggested.
 wider_completion_menu = False
@@ -76,7 +76,7 @@ login_path_as_host = False
 
 # Cause result sets to be displayed vertically if they are too wide for the current window,
 # and using normal tabular format otherwise. (This applies to statements terminated by ; or \G.)
-auto_vertical_output = False
+auto_vertical_output = True
 
 # keyword casing preference. Possible values "lower", "upper", "auto"
 keyword_casing = auto
@@ -108,7 +108,7 @@ bottom-toolbar.transaction.valid = 'bg:#222222 #00ff5f bold'
 bottom-toolbar.transaction.failed = 'bg:#222222 #ff005f bold'
 
 # style classes for colored table output
-output.header = "#00ff5f bold"
+output.header = "#0b759c bold"
 output.odd-row = ""
 output.even-row = ""
 
