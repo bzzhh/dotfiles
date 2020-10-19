@@ -42,7 +42,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'reasonml-editor/vim-reason-plus'
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'duggiefresh/vim-easydir'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
@@ -477,7 +477,7 @@ augroup CursorLine
 augroup END
 
 "coc
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-phpls', 'coc-prettier', 'coc-snippets', 'coc-python' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-phpls', 'coc-snippets', 'coc-python' ]
 
 " elixir
 
@@ -624,9 +624,6 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " typescript
 let g:yats_host_keyword = 1
-
-" Prettier
-let g:prettier#autoformat_config_present = 1
 
 "*****************************************************************************
 "" Convenience variables
@@ -818,9 +815,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" Prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-autocmd BufWritePre *.html,*.js,*.ts,*.tsx,*.css :Prettier
+autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css :Prettier
 
 " project config - personnal file (not on my git repository)
 source $VIMCONFIG/projects.nvimrc

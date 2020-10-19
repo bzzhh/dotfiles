@@ -1,40 +1,26 @@
 {
-	"intelephense.licenceKey": "~/Documents/intelephense.license",
-	"languageserver": {
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": [
-				"go.mod",
-				".vim/",
-				".git/",
-				".hg/"
-			],
-			"filetypes": [
-				"go"
-			]
-		}
-	},
-	"coc.preferences.formatOnSaveFiletypes": [
-		"json",
-		"markdown"
-	],
-	"eslint.filetypes": [
-		"javascript",
-		"json",
-		"typescript",
-		"typescriptreact",
-		"javascriptreact"
-	],
-	"snippets.ultisnips.directories": [
-		"UltiSnips",
-		"gosnippets/UltiSnips"
-	],
-	"snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
-	"suggest.snippetIndicator": " ►",
-	"diagnostic.errorSign": "•",
-	"diagnostic.warningSign": "•",
-	"diagnostic.infoSign": "•",
-	"diagnostic.checkCurrentLine": true,
-	"prettier.tslintIntegration": true,
-	"tsserver.npm": "~/.npm_modules/bin/npm"
+  "intelephense.licenceKey": "~/Documents/intelephense.license",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  },
+  "eslint.filetypes": [
+    "javascript",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ],
+  "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
+  "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
+  "suggest.snippetIndicator": " ►",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.checkCurrentLine": true,
+  "prettier.tslintIntegration": true,
+  "tsserver.npm": "~/.npm_modules/bin/npm"
 }
