@@ -4,6 +4,7 @@ dotfiles=(
     .composer/composer.json
     .config/autostart/Swap\ Esc.desktop
     .config/ranger/rc.conf
+    .config/nvim/coc-settings.json
     .config/nvim/init.vim
     .config/nvim/ultisnips/
     .config/xfce4/terminal/terminalrc

@@ -35,9 +35,9 @@ MiscSlimTabs=FALSE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 MiscNewTabAdjacent=FALSE
 MiscShowRelaunchDialog=TRUE
-ColorPalette=#d8cad8;#ca402b;#918b3b;#bb8a35;#516aec;#cc33cc;#159393;#292329;#f7f3f7;#a65926;#ab9bab;#9e8f9e;#776977;#7b59c0;#695d69;#1b181b
-ColorForeground=#695d69
+ColorPalette=rgb(241,239,238);rgb(172,86,95);rgb(123,151,38);rgb(195,132,24);rgb(64,126,231);rgb(102,102,234);rgb(61,151,184);rgb(104,97,94);rgb(156,148,145);rgb(242,44,64);rgb(123,151,38);rgb(195,132,24);rgb(64,126,231);rgb(102,102,234);rgb(61,151,184);rgb(27,25,24)
+ColorForeground=#68615e
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorBackground=#f7f3f7
+ColorBackground=#f1efee
 
