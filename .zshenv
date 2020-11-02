@@ -13,7 +13,8 @@ export PATH=$HOME/.fzf/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin/
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=/home/steven/code/gitlab/fa2-smartpy/_smartpy_installation:$PATH
+export PATH=$HOME/code/gitlab/fa2-smartpy/_smartpy_installation:$PATH
+export PATH=$HOME/.config/nvim/plugged/phpactor/bin:$PATH
 
 alias vim=nvim
 alias tf=truffle
