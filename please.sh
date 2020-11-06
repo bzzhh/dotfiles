@@ -8,15 +8,15 @@ dotfiles=(
     .config/nvim/ftplugin
     .config/nvim/init.vim
     .config/nvim/ultisnips/
+    .config/pgcli/config
+    .config/tmux/tmux.conf
     .config/xfce4/terminal/terminalrc
     .gitconfig
     .gitignore_global
     .oh-my-zsh/custom/plugins
-    .tmux/.tmux.conf
     .Xmodmap
     .zshenv
     .zshrc
-    .config/pgcli/config
     .myclirc
 )
 

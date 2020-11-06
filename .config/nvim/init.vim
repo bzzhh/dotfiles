@@ -49,6 +49,10 @@ Plug 'mhinz/vim-startify'
 Plug 'amiorin/vim-project'
 Plug 'neomake/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'dyng/ctrlsf.vim'
+" Plug 'weirongxu/plantuml-previewer.vim'
+" Plug 'tyru/open-browser.vim'
+" Plug 'aklt/plantuml-syntax'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -108,16 +112,6 @@ Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring option
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
 Plug '2072/php-indenting-for-vim', {'for': 'php'}
 Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'} " php doc autocompletion 
-
-" python
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-
-" rust
-Plug 'racer-rust/vim-racer'
-
-" Rust.vim
-Plug 'rust-lang/rust.vim'
 
 " tezos
 Plug 'rnestler/michelson.vim'
@@ -268,6 +262,12 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 "
 "" NERDTree configuration
+
+function! ToggleNERDTree()
+    NERDTreeToggle
+    silent NERDTreeMirror
+endfunction
+
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
@@ -277,7 +277,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <F3> :call ToggleNERDTree()<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -411,6 +411,28 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
+nmap // :BLines!<CR>
+nmap ?? :Rg!<CR>
+nmap <leader>p :Files!<CR>
+nmap cc :Commands!<CR>
+
+" php
+nmap <leader>pi :PhpactorImportClass<CR>
+
+" CtrlSF
+
+" Set "<leader>s" to substitute the word under the cursor. Works great with
+" CtrlSF!
+nmap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" Set up some handy CtrlSF bindings
+nmap <leader>a :CtrlSF -R ""<Left>
+nmap <leader>A <Plug>CtrlSFCwordPath -W<CR>
+nmap <leader>c :CtrlSFFocus<CR>
+nmap <leader>C :CtrlSFToggle<CR>
+
+" Use Ripgrep with CtrlSF for performance
+let g:ctrlsf_ackprg = '/usr/bin/rg'
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -424,8 +446,7 @@ let g:ale_php_php_cs_fixer_executable='./vendor/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
-    \'ocaml': ['merlin'],
-    \'python': ['flake8'], }
+    \'ocaml': ['merlin'], }
 
 let g:ale_fix_on_save = 1
 
@@ -464,11 +485,18 @@ noremap <leader>c :bd<CR>
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
 
+" Simple tab navigation with <C-h> and <C-l> to intuitively go left and right
+noremap <C-h> :tabp<CR>
+noremap <C-l> :tabn<CR>
+
+" Close the tab with <C-j>
+noremap <C-J> :tabc<CR>
+
 "" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
@@ -516,9 +544,6 @@ let g:coc_global_extensions = [
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
 
-" Syntax highlight
-let python_highlight_all = 1
-
 " go
 " vim-go
 " run :GoBuild or :GoTestCompile based on the go file
@@ -565,36 +590,8 @@ augroup END
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
-" python
-" vim-python
-augroup vimrc-python
-  autocmd!
-  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-      \ formatoptions+=croq softtabstop=4
-      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-augroup END
-
-" jedi-vim
-let g:jedi#popup_on_dot = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "0"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#smart_auto_mappings = 0
-
-
-" rust
-let g:racer_cmd = "/home/steven/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let g:rustfmt_autosave = 1
-" Vim racer
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
+" http client
+let http_client_json_escape_utf=0
 
 " typescript
 let g:yats_host_keyword = 1

@@ -21,6 +21,8 @@ alias tf=truffle
 alias teztool='docker run -it -v $PWD:/mnt/pwd -e MODE=dind -e DIND_PWD=$PWD -v /var/run/docker.sock:/var/run/docker.sock registry.gitlab.com/nomadic-labs/teztool:latest'
 alias oni2=/opt/Onivim2/Onivim2.AppImage
 alias rg='rg --hidden'
+alias tn="tmux -u -f ~/.config/tmux/tmux.conf new"
+alias ta="tmux -u -f ~/.config/tmux/tmux.conf attach"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
