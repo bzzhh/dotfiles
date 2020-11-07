@@ -10,3 +10,4 @@ Things to install:
 Resources:
 
 -   https://www.davidbegin.com/how-i-use-tmux/
+-   https://www.vimconf.live
