@@ -1,5 +1,5 @@
 {
-    "intelephense.licenceKey": "~/Documents/intelephense.license",
+    "intelephense.licenceKey": "/home/steven/intelephense/license.txt",
     "languageserver": {
         "golang": {
             "command": "gopls",
@@ -14,14 +14,6 @@
         "typescriptreact",
         "javascriptreact"
     ],
-    "phpactor.config": {
-        "trace.server": "verbose",
-        "command": "~/.config/nvim/plugged/phpactor/bin/phpactor",
-        "args": ["language-server"],
-        "filetypes": ["php", "cucumber"],
-        "initializationOptions": {},
-        "settings": {}
-    },
     "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
     "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
     "suggest.snippetIndicator": " ►",

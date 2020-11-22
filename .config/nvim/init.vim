@@ -109,7 +109,6 @@ Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
 Plug 'lumiliet/vim-twig', {'for': 'twig'} " twig
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
 Plug '2072/php-indenting-for-vim', {'for': 'php'}
 Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'} " php doc autocompletion 
 
@@ -326,14 +325,6 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
-"" make/cmake
-augroup vimrc-make-cmake
-  autocmd!
-  autocmd FileType make setlocal noexpandtab softtabstop=0
-  autocmd BufNewFile,BufRead Makefile setlocal noexpandtab
-  autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
-augroup END
-
 " prettier
 augroup vimrc-prettier
   autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css :Prettier
@@ -343,10 +334,6 @@ augroup end
 augroup vimrc-ligo
   autocmd BufNewFile,BufRead *.ligo set syntax=pascal
   autocmd BufNewFile,BufRead *.religo set syntax=reason
-augroup end
-
-augroup vimrc-cucumber-phpactor
-  autocmd FileType cucumber setlocal omnifunc=phpactor#Complete
 augroup end
 
 set autoread
@@ -416,9 +403,6 @@ nmap ?? :Rg!<CR>
 nmap <leader>p :Files!<CR>
 nmap cc :Commands!<CR>
 
-" php
-nmap <leader>pi :PhpactorImportClass<CR>
-
 " CtrlSF
 
 " Set "<leader>s" to substitute the word under the cursor. Works great with
@@ -441,9 +425,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " ale
-let g:ale_php_phpcs_executable='./vendor/bin/phpcs'
-let g:ale_php_php_cs_fixer_executable='./vendor/bin/php-cs-fixer'
-let g:ale_fixers = {'php': ['php_cs_fixer']}
+let g:ale_fixers = {'php': ['php_cs_fixer'],
+    \  'javascript': ['eslint'], }
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
     \'ocaml': ['merlin'], }
@@ -534,7 +517,6 @@ let g:coc_global_extensions = [
     \ 'coc-eslint',
     \ 'coc-tsserver',
     \ 'coc-phpls',
-    \ 'coc-phpactor',
     \ 'coc-html',
     \ 'coc-yaml',
     \]

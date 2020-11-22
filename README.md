@@ -2,7 +2,7 @@
 
 Things to install:
 
--   https://github.com/afq984/base16-xfce4-terminal
+-   [base16](https://github.com/afq984/base16-xfce4-terminal)
 -   phpactor extensions:
     -   `phpactor extension:install phpactor/behat-extension`
     -   `phpactor extension:install phpactor/language-server-phpstan-extension`

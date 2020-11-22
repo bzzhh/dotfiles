@@ -24,7 +24,10 @@ install()
 {
     for f in "${dotfiles[@]}"
     do
-        mkdir -p "${f%/*}"
+        d="${f%/*}"
+        if [[ $d =~ "/" && ! -d $d ]]; then
+            mkdir -p "$d"
+        fi
         rsync -av "$f" ~/"$f"
     done
 }

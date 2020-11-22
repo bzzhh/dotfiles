@@ -6,7 +6,7 @@ export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
 
 export PATH=$HOME/.local/share/umake/nodejs/nodejs-lang/bin:$PATH
-export PATH=$HOME/.npm_modules/bin:$PATH
+export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$HOME/.symfony/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.fzf/bin:$PATH
