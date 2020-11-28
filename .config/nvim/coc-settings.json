@@ -14,6 +14,7 @@
         "typescriptreact",
         "javascriptreact"
     ],
+    "coc.preferences.formatOnSaveFiletypes": ["reason"],
     "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
     "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
     "suggest.snippetIndicator": " ►",

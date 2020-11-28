@@ -32,7 +32,7 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -50,6 +50,10 @@ Plug 'amiorin/vim-project'
 Plug 'neomake/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'jdonaldson/vaxe'
+Plug 'reasonml-editor/vim-reason-plus'
+
+
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
 " Plug 'aklt/plantuml-syntax'
@@ -515,8 +519,10 @@ let g:coc_global_extensions = [
     \ 'coc-json', 
     \ 'coc-css', 
     \ 'coc-eslint',
+    \ 'coc-haxe',
     \ 'coc-tsserver',
     \ 'coc-phpls',
+    \ 'coc-reason',
     \ 'coc-html',
     \ 'coc-yaml',
     \]
