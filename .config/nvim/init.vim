@@ -52,7 +52,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'jdonaldson/vaxe'
 Plug 'reasonml-editor/vim-reason-plus'
-
+Plug 'rescript-lang/vim-rescript'
 
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
