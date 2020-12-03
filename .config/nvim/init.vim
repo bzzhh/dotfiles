@@ -20,6 +20,20 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+" Coc extensions
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-json', 
+    \ 'coc-css', 
+    \ 'coc-eslint',
+    \ 'coc-haxe',
+    \ 'coc-tsserver',
+    \ 'coc-phpls',
+    \ 'coc-reason',
+    \ 'coc-html',
+    \ 'coc-yaml',
+    \]
+
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
@@ -35,10 +49,8 @@ Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-Plug 'easymotion/vim-easymotion'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'reasonml-editor/vim-reason-plus'
@@ -503,6 +515,9 @@ let g:netrw_browse_split = 4
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
 
+" emmet 
+let g:user_emmet_leader_key=','
+
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
@@ -513,19 +528,6 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-" Coc extensions
-let g:coc_global_extensions = [
-    \ 'coc-snippets',
-    \ 'coc-json', 
-    \ 'coc-css', 
-    \ 'coc-eslint',
-    \ 'coc-haxe',
-    \ 'coc-tsserver',
-    \ 'coc-phpls',
-    \ 'coc-reason',
-    \ 'coc-html',
-    \ 'coc-yaml',
-    \]
 
 " elixir
 

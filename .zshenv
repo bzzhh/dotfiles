@@ -15,8 +15,10 @@ export PATH=$PATH:$HOME/.local/bin/
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$HOME/code/gitlab/fa2-smartpy/_smartpy_installation:$PATH
 export PATH=$HOME/.config/nvim/plugged/phpactor/bin:$PATH
+export PATH=/opt/adr-tools/src:$PATH
 
 alias vim=nvim
+alias vimdiff="nvim -d"
 alias tf=truffle
 alias teztool='docker run -it -v $PWD:/mnt/pwd -e MODE=dind -e DIND_PWD=$PWD -v /var/run/docker.sock:/var/run/docker.sock registry.gitlab.com/nomadic-labs/teztool:latest'
 alias oni2=/opt/Onivim2/Onivim2.AppImage
