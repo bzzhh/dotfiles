@@ -1,34 +1,34 @@
 {
-    "intelephense.licenceKey": "/home/steven/intelephense/license.txt",
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["go"]
-        },
-        "rescript": {
-            "enable": true,
-            "module": "~/.config/nvim/plugged/vim-rescript/rescript-vscode-1.0.0/extension/server/out/server.js",
-            "args": ["--node-ipc"],
-            "filetypes": ["rescript"],
-            "rootPatterns": ["bsconfig.json"]
-        }
+  "intelephense.licenceKey": "/home/steven/intelephense/license.txt",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     },
-    "eslint.filetypes": [
-        "javascript",
-        "json",
-        "typescript",
-        "typescriptreact",
-        "javascriptreact"
-    ],
-    "coc.preferences.formatOnSaveFiletypes": ["reason", "rescript"],
-    "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
-    "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
-    "suggest.snippetIndicator": " ►",
-    "diagnostic.errorSign": "•",
-    "diagnostic.warningSign": "•",
-    "diagnostic.infoSign": "•",
-    "diagnostic.checkCurrentLine": true,
-    "prettier.tslintIntegration": true,
-    "tsserver.npm": "~/.npm_modules/bin/npm"
+    "rescript": {
+      "enable": true,
+      "module": "~/.config/nvim/plugged/vim-rescript/rescript-vscode/extension/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
+    }
+  },
+  "eslint.filetypes": [
+    "javascript",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": ["reason", "rescript"],
+  "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
+  "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
+  "suggest.snippetIndicator": " ►",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.checkCurrentLine": true,
+  "prettier.tslintIntegration": true,
+  "tsserver.npm": "~/.npm_modules/bin/npm"
 }

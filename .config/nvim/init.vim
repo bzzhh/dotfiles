@@ -54,7 +54,6 @@ Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'reasonml-editor/vim-reason-plus'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'duggiefresh/vim-easydir'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
@@ -138,6 +137,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " rescript
 Plug 'amiralies/vim-rescript'
+
+Plug 'catsoap/vim-ligo'
 
 call plug#end()
 
@@ -341,17 +342,6 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
-" prettier
-augroup vimrc-prettier
-  autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css :Prettier
-augroup end
-
-" ligo
-augroup vimrc-ligo
-  autocmd BufNewFile,BufRead *.ligo set syntax=pascal
-  autocmd BufNewFile,BufRead *.religo set syntax=reason
-augroup end
-
 set autoread
 
 "*****************************************************************************
@@ -442,11 +432,15 @@ let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_fixers = {'php': ['php_cs_fixer'],
-    \  'javascript': ['eslint'], }
+    \  'javascript': ['eslint'], 
+    \'json': ['prettier'],
+    \'typescript': ['eslint', 'prettier'],
+    \'markdown': ['prettier'],}
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
-    \'ocaml': ['merlin'], }
-
+    \'ocaml': ['merlin'], 
+    \'javascript': ['eslint'],
+    \'typescript': ['eslint', 'tsserver', 'prettier'], }
 let g:ale_fix_on_save = 1
 
 " Tagbar

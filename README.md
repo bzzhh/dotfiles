@@ -7,11 +7,15 @@ Shell: xterm
 Mainly developping in PHP, javascript, typescript.  
 Interrested in OCaml, ReScript
 
-Things to install:
+I use [base16](https://github.com/afq984/base16-xfce4-terminal) for xterm theme.
 
--   [base16](https://github.com/afq984/base16-xfce4-terminal)
+npm global packages to install:
+
+- bs-platform
+- eslint
+- prettier
 
 Resources:
 
--   https://www.davidbegin.com/how-i-use-tmux/
--   https://www.vimconf.live
+- https://www.davidbegin.com/how-i-use-tmux/
+- https://www.vimconf.live
