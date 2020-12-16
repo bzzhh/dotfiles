@@ -27,6 +27,7 @@ let g:coc_global_extensions = [
     \ 'coc-css', 
     \ 'coc-eslint',
     \ 'coc-haxe',
+    \ 'coc-jedi',
     \ 'coc-tsserver',
     \ 'coc-phpls',
     \ 'coc-reason',
@@ -60,10 +61,11 @@ Plug 'mhinz/vim-startify'
 Plug 'amiorin/vim-project'
 Plug 'neomake/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'jdonaldson/vaxe'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rescript-lang/vim-rescript'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'dyng/ctrlsf.vim'
 
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
@@ -118,6 +120,10 @@ Plug 'jelera/vim-javascript-syntax'
 " ocaml
 Plug 'def-lkb/ocp-indent-vim'
 
+" python
+Plug 'davidhalter/jedi-vim'
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+
 " php
 Plug 'vim-vdebug/vdebug'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
@@ -126,6 +132,7 @@ Plug 'lumiliet/vim-twig', {'for': 'twig'} " twig
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
 Plug '2072/php-indenting-for-vim', {'for': 'php'}
 Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'} " php doc autocompletion 
+Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
 
 " tezos
 Plug 'rnestler/michelson.vim'
@@ -142,8 +149,12 @@ Plug 'catsoap/vim-ligo'
 
 call plug#end()
 
+"":set runtimepath^=~/workspace/coc-ligo
+
 " Required:
 filetype plugin indent on
+
+"let g:node_client_debug = 1
 
 "*****************************************************************************
 "" Basic Setup
@@ -344,6 +355,11 @@ augroup END
 
 set autoread
 
+" prettier
+augroup vimrc-prettier
+  autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css :Prettier
+augroup end
+
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
@@ -404,6 +420,7 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
+
 nmap // :BLines!<CR>
 nmap ?? :Rg!<CR>
 nmap <leader>p :Files!<CR>
@@ -432,7 +449,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_fixers = {'php': ['php_cs_fixer'],
-    \  'javascript': ['eslint'], 
+    \'javascript': ['eslint'], 
     \'json': ['prettier'],
     \'typescript': ['eslint', 'prettier'],
     \'markdown': ['prettier'],}
@@ -440,6 +457,7 @@ let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
     \'ocaml': ['merlin'], 
     \'javascript': ['eslint'],
+    \'python': ['flake8'],
     \'typescript': ['eslint', 'tsserver', 'prettier'], }
 let g:ale_fix_on_save = 1
 
@@ -522,8 +540,14 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-
-" elixir
+" python
+" vim-python
+augroup vimrc-python
+  autocmd!
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+      \ formatoptions+=croq softtabstop=4
+      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+augroup END
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1

@@ -12,6 +12,10 @@
       "args": ["--node-ipc"],
       "filetypes": ["rescript"],
       "rootPatterns": ["bsconfig.json"]
+    },
+    "ligo": {
+      "command": "~/.local/bin/ligo-squirrel",
+      "filetypes": ["ligo", "mligo", "religo"]
     }
   },
   "eslint.filetypes": [
@@ -30,5 +34,5 @@
   "diagnostic.infoSign": "•",
   "diagnostic.checkCurrentLine": true,
   "prettier.tslintIntegration": true,
-  "tsserver.npm": "~/.npm_modules/bin/npm"
+  "npm.binPath": "yarn"
 }
