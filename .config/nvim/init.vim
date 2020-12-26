@@ -27,8 +27,8 @@ let g:coc_global_extensions = [
     \ 'coc-css', 
     \ 'coc-eslint',
     \ 'coc-haxe',
-    \ 'coc-jedi',
     \ 'coc-tsserver',
+    \ 'coc-pyright',
     \ 'coc-phpls',
     \ 'coc-reason',
     \ 'coc-html',
@@ -51,7 +51,6 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
-Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'reasonml-editor/vim-reason-plus'
@@ -66,6 +65,7 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rescript-lang/vim-rescript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'dyng/ctrlsf.vim'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
@@ -121,7 +121,6 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'def-lkb/ocp-indent-vim'
 
 " python
-Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " php
@@ -451,13 +450,14 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ale_fixers = {'php': ['php_cs_fixer'],
     \'javascript': ['eslint'], 
     \'json': ['prettier'],
+    \'python': ['autopep8','yapf'],
     \'typescript': ['eslint', 'prettier'],
     \'markdown': ['prettier'],}
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
     \'ocaml': ['merlin'], 
     \'javascript': ['eslint'],
-    \'python': ['flake8'],
+    \'python': ['flake8','pylint'],
     \'typescript': ['eslint', 'tsserver', 'prettier'], }
 let g:ale_fix_on_save = 1
 
@@ -548,6 +548,8 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
+
+let g:python3_host_prog = '~/.pyenv/shims/python3.8'
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1

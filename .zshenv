@@ -15,6 +15,7 @@ export PATH=$PATH:$HOME/.local/bin/
 export PATH=$HOME/code/gitlab/fa2-smartpy/_smartpy_installation:$PATH
 export PATH=$HOME/.config/nvim/plugged/phpactor/bin:$PATH
 export PATH=/opt/adr-tools/src:$PATH
+export PATH=/opt/Tezster:$PATH
 
 alias vim=nvim
 alias vimdiff="nvim -d"
@@ -29,3 +30,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 export VIMCONFIG=~/.config/nvim
+
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
