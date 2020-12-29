@@ -1,39 +1,36 @@
 {
-    "intelephense.licenceKey": "/home/steven/intelephense/license.txt",
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["go"]
-        },
-        "rescript": {
-            "enable": true,
-            "module": "~/.config/nvim/plugged/vim-rescript/rescript-vscode/extension/server/out/server.js",
-            "args": ["--node-ipc"],
-            "filetypes": ["rescript"],
-            "rootPatterns": ["bsconfig.json"]
-        },
-        "ligo": {
-            "command": "~/.local/bin/ligo-squirrel",
-            "filetypes": ["ligo", "mligo", "religo"]
-        }
+  "intelephense.licenceKey": "/home/steven/intelephense/license.txt",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     },
-    "eslint.filetypes": [
-        "javascript",
-        "json",
-        "typescript",
-        "typescriptreact",
-        "javascriptreact"
-    ],
-    "coc.preferences.formatOnSaveFiletypes": ["reason", "rescript"],
-    "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
-    "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
-    "suggest.snippetIndicator": " ►",
-    "diagnostic.errorSign": "•",
-    "diagnostic.warningSign": "•",
-    "diagnostic.infoSign": "•",
-    "diagnostic.checkCurrentLine": true,
-    "prettier.tslintIntegration": true,
-    "npm.binPath": "yarn",
-    "python.venvPath": "~/.local/share/virtualenvs"
+    "rescript": {
+      "enable": true,
+      "module": "~/.config/nvim/plugged/vim-rescript/rescript-vscode/extension/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
+    },
+    "ligo": {
+      "command": "~/.local/bin/ligo-squirrel",
+      "filetypes": ["ligo", "mligo", "religo"]
+    }
+  },
+  "eslint.filetypes": [
+    "javascript",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": ["reason", "rescript"],
+  "suggest.snippetIndicator": " ►",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.checkCurrentLine": true,
+  "npm.binPath": "yarn",
+  "python.venvPath": "~/.local/share/virtualenvs"
 }

@@ -22,10 +22,9 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " Coc extensions
 let g:coc_global_extensions = [
-    \ 'coc-snippets',
     \ 'coc-json', 
-    \ 'coc-css', 
     \ 'coc-eslint',
+    \ 'coc-tailwindcss',
     \ 'coc-haxe',
     \ 'coc-tsserver',
     \ 'coc-pyright',
@@ -65,7 +64,6 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rescript-lang/vim-rescript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
