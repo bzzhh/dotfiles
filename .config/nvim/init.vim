@@ -32,6 +32,7 @@ let g:coc_global_extensions = [
     \ 'coc-reason',
     \ 'coc-html',
     \ 'coc-yaml',
+    \ 'coc-xml',
     \]
 
 "*****************************************************************************
@@ -425,9 +426,9 @@ nmap cc :Commands!<CR>
 
 " CtrlSF
 
-" Set "<leader>s" to substitute the word under the cursor. Works great with
+" Set "<leader>S" to substitute the word under the cursor. Works great with
 " CtrlSF!
-nmap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nmap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
 " Set up some handy CtrlSF bindings
 nmap <leader>a :CtrlSF -R ""<Left>
