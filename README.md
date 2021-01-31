@@ -13,7 +13,7 @@ npm global packages to install:
 
 - bs-platform
 - eslint
-- prettier
+- prettier @prettier/plugin-php
 - intelephense
 
 ## Tips

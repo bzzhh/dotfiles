@@ -65,8 +65,10 @@ plugins=(
   git
   colored-man-pages
   ranger
+  zsh-autosuggestions
   zsh-pyenv
   zsh-256color
+  zsh-aliases-exa
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,4 +104,5 @@ source $ZSH/oh-my-zsh.sh
 
 # opam configuration
 test -r /home/steven/.opam/opam-init/init.zsh && . /home/steven/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+eval "$(starship init zsh)"
 

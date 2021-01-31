@@ -9,6 +9,7 @@ dotfiles=(
     .config/nvim/init.vim
     .config/nvim/ultisnips/
     .config/pgcli/config
+    .config/starship.toml 
     .config/tmux/tmux.conf
     .config/xfce4/terminal/terminalrc
     .gitconfig

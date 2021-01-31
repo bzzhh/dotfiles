@@ -4,6 +4,8 @@
         "squizlabs/php_codesniffer": "^3.5",
         "friendsofphp/php-cs-fixer": "^2.16",
         "vimeo/psalm": "^4.1",
-        "symfony/var-dumper": "^5.1"
+        "symfony/var-dumper": "^5.1",
+        "phpmd/phpmd": "^2.9",
+        "nunomaduro/phpinsights": "^1.14"
     }
 }

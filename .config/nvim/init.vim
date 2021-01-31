@@ -63,8 +63,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'jdonaldson/vaxe'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rescript-lang/vim-rescript'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'dyng/ctrlsf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
@@ -124,12 +125,8 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " php
 Plug 'vim-vdebug/vdebug'
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
 Plug 'lumiliet/vim-twig', {'for': 'twig'} " twig
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'} " php refactoring options
-Plug '2072/php-indenting-for-vim', {'for': 'php'}
-Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'} " php doc autocompletion 
 Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
 
 " tezos
@@ -354,9 +351,9 @@ augroup END
 set autoread
 
 " prettier
-augroup vimrc-prettier
-  autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css :Prettier
-augroup end
+" augroup vimrc-prettier
+"   autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css,*.xml :Prettier
+" augroup end
 
 "*****************************************************************************
 "" Mappings
@@ -446,18 +443,22 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " ale
-let g:ale_fixers = {'php': ['php_cs_fixer'],
+let g:ale_fixers = {'php': ['prettier', 'php_cs_fixer'],
     \'javascript': ['eslint'], 
     \'json': ['prettier'],
     \'python': ['autopep8','yapf'],
     \'typescript': ['eslint', 'prettier'],
-    \'markdown': ['prettier'],}
+    \'markdown': ['prettier'],
+    \'xml': ['prettier'],
+    \'typescriptreact': ['prettier'], }
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
     \'ocaml': ['merlin'], 
     \'javascript': ['eslint'],
+    \'javascriptreact': ['eslint'],
     \'python': ['flake8','pylint'],
-    \'typescript': ['eslint', 'tsserver', 'prettier'], }
+    \'typescript': ['eslint', 'tsserver'], 
+    \'typescriptreact': ['eslint', 'tsserver'], }
 let g:ale_fix_on_save = 1
 
 " Tagbar
