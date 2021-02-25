@@ -3,6 +3,8 @@
 dotfiles=(
     .composer/composer.json
     .config/autostart/Swap\ Esc.desktop
+    .config/fish/fish_variables
+    .config/kitty/kitty.conf
     .config/ranger/rc.conf
     .config/nvim/coc-settings.json
     .config/nvim/ftplugin
@@ -12,6 +14,7 @@ dotfiles=(
     .config/starship.toml 
     .config/tmux/tmux.conf
     .config/xfce4/terminal/terminalrc
+    .emacs.d/init.el
     .gitconfig
     .gitignore_global
     .oh-my-zsh/custom/plugins
