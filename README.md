@@ -15,4 +15,4 @@ Clean phpls cache: `rm -rf ~/.config/coc/extensions/coc-phpls-data`
 
 - https://www.davidbegin.com/how-i-use-tmux/
 - https://www.vimconf.live
-
+- [Emacs from scratch](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ)

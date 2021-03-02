@@ -2,10 +2,6 @@
 
 dotfiles=(
     .composer/composer.json
-    .config/autostart/Swap\ Esc.desktop
-    .config/fish/fish_variables
-    .config/kitty/kitty.conf
-    .config/ranger/rc.conf
     .config/nvim/coc-settings.json
     .config/nvim/ftplugin
     .config/nvim/init.vim
@@ -13,7 +9,6 @@ dotfiles=(
     .config/pgcli/config
     .config/starship.toml 
     .config/tmux/tmux.conf
-    .config/xfce4/terminal/terminalrc
     .emacs.d/init.el
     .gitconfig
     .gitignore_global
@@ -22,6 +17,7 @@ dotfiles=(
     .zshenv
     .zshrc
     .myclirc
+    .Xresources
 )
 
 install()
