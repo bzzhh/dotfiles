@@ -18,13 +18,6 @@
       "filetypes": ["ligo", "mligo", "religo"]
     }
   },
-  "eslint.filetypes": [
-    "javascript",
-    "json",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact"
-  ],
   "coc.preferences.formatOnSaveFiletypes": ["reason", "rescript"],
   "suggest.snippetIndicator": " ►",
   "diagnostic.errorSign": "•",
@@ -34,3 +27,4 @@
   "npm.binPath": "yarn",
   "python.venvPath": "~/.local/share/virtualenvs"
 }
+

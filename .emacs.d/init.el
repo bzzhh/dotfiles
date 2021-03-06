@@ -47,7 +47,7 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(package-selected-packages
-   '(evil general doom-themes helpful ivy-rich which-key rainbow-delimiters doom-modeline counsel ivy use-package)))
+   '(projectile evil general doom-themes helpful ivy-rich which-key rainbow-delimiters doom-modeline counsel ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -135,3 +135,15 @@
   :after evil
   :config
   (evil-collection-init))
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  (when (file-directory-p "~/Projects/Code")
+    (setq projectile-project-search-path '("~/Projects/Code")))
+  (setq projectile-switch-project-action #'projectile-dired))

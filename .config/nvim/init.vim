@@ -53,7 +53,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
 Plug 'itspriddle/vim-shellcheck'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'reasonml-editor/vim-reason-plus'
 Plug 'duggiefresh/vim-easydir'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
@@ -61,11 +60,9 @@ Plug 'amiorin/vim-project'
 Plug 'neomake/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'jdonaldson/vaxe'
-Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rescript-lang/vim-rescript'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'tyru/open-browser.vim'
@@ -92,7 +89,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Color
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'jnurmine/Zenburn'
 
 " elixir
 Plug 'elixir-lang/vim-elixir'
@@ -207,28 +204,20 @@ set ruler
 set number
 
 let no_buffers_menu=1
-set background=light
-silent! colorscheme PaperColor
+silent! colorscheme zenburn
 
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
+let g:CSApprox_loaded = 1
 
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-endif
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -257,7 +246,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'zenburn'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -472,9 +461,7 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+set clipboard=unnamed
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -548,8 +535,6 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
-
-let g:python3_host_prog = '~/.pyenv/shims/python3.8'
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
@@ -797,4 +782,5 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " project config - personnal file (not on my git repository)
-source $VIMCONFIG/projects.nvimrc
+" source $VIMCONFIG/projects.nvimrc
+

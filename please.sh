@@ -2,12 +2,12 @@
 
 dotfiles=(
     .composer/composer.json
+    .config/lf
     .config/nvim/coc-settings.json
     .config/nvim/ftplugin
     .config/nvim/init.vim
     .config/nvim/ultisnips/
     .config/pgcli/config
-    .config/starship.toml 
     .config/tmux/tmux.conf
     .emacs.d/init.el
     .gitconfig
@@ -25,9 +25,7 @@ install()
     for f in "${dotfiles[@]}"
     do
         d="${f%/*}"
-        if [[ $d =~ "/" && ! -d $d ]]; then
-            mkdir -p "$d"
-        fi
+        [[ $d =~ "/" && ! -d $d ]] && mkdir -p "$d"
         rsync -av "$f" ~/"$f"
     done
 }
@@ -42,7 +40,7 @@ retrieve()
 }
 
 PS3='Please enter your choice: '
-options=("retrieve files" "install files" "abort")
+options=("retrieve files" "install files" "report installed packages" "abort")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -52,6 +50,10 @@ do
             ;;
         "install files")
             install
+            break
+            ;;
+        "report installed packages")
+            pacman -Qqe > pkglist.txt
             break
             ;;
         "abort")

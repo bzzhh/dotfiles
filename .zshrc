@@ -64,11 +64,9 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   colored-man-pages
-  ranger
   zsh-autosuggestions
   zsh-pyenv
   zsh-256color
-  zsh-aliases-exa
 )
 
 source $ZSH/oh-my-zsh.sh
