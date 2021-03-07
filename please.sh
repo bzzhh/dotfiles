@@ -9,14 +9,18 @@ dotfiles=(
     .config/nvim/ultisnips/
     .config/pgcli/config
     .config/tmux/tmux.conf
+    .config/xmobar
     .emacs.d/init.el
     .gitconfig
     .gitignore_global
-    .oh-my-zsh/custom/plugins
+    .oh-my-zsh/custom/aliases.zsh
+    .oh-my-zsh/custom/paths.zsh
     .Xmodmap
     .zshenv
     .zshrc
     .myclirc
+    .xinitrc
+    .xmonad/xmonad.hs
     .Xresources
 )
 

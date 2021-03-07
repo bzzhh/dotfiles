@@ -5,12 +5,11 @@ Xft.rgba: rgb
 Xft.autohint: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
-
 XTerm*renderFont: true
-XTerm*faceName: xft:Mononoki Nerd Font, \
+XTerm*faceName: xft:Source Code Pro, \
                 xft:JoyPixels:size=12, \
                 xft:Monospace:style=Medium:size=12   
-XTerm*faceSize: 11
+XTerm*faceSize: 8
 XTerm*utf8: 2
 XTerm*locale: true
 
@@ -18,6 +17,7 @@ XTerm.vt100.translations: #override \n\
   Ctrl <Key> j: smaller-vt-font() \n\
   Ctrl <Key> k: larger-vt-font()
 
+XTerm*metaSendsEscape: true
 
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 XTerm*loginshell: true
@@ -38,7 +38,7 @@ XTerm*background: #3a3a3a
 XTerm*foreground: #dcdccc
 ! Black (not tango) + DarkGrey
 XTerm*color0:  #000000
-XTerm*color8:  #222222
+XTerm*color8:  #808080
 ! DarkRed + Red
 XTerm*color1:  #e89393
 XTerm*color9:  #dca3a3

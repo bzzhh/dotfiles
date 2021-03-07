@@ -61,12 +61,8 @@ Plug 'neomake/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'jdonaldson/vaxe'
 Plug 'rescript-lang/vim-rescript'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'dyng/ctrlsf.vim'
-
-" Plug 'weirongxu/plantuml-previewer.vim'
-" Plug 'tyru/open-browser.vim'
-" Plug 'aklt/plantuml-syntax'
+Plug 'jreybert/vimagit'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -339,11 +335,6 @@ augroup END
 
 set autoread
 
-" prettier
-" augroup vimrc-prettier
-"   autocmd BufWritePre *.html,*.js,*.json,*.md,*.ts,*.tsx,*.css,*.xml :Prettier
-" augroup end
-
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
@@ -433,7 +424,8 @@ let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_fixers = {'php': ['prettier', 'php_cs_fixer'],
-    \'javascript': ['eslint'], 
+    \'css': ['prettier'],
+    \'javascript': ['eslint', 'prettier'], 
     \'json': ['prettier'],
     \'python': ['autopep8','yapf'],
     \'typescript': ['eslint', 'prettier'],

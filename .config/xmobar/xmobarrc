@@ -1,0 +1,19 @@
+Config { font = "xft:Droid Sans Mono for Powerline:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = ["xft:Font Awesome 5 Free Solid:size=9", "xft:Font Awesome 5 Brands:size=9"],
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100
+       , lowerOnStart = False
+       , hideOnStart = False
+       , overrideRedirect = True
+       , allDesktops = True
+       , commands = [
+                     Run StdinReader
+                    , Run Weather "LFPG" [ "--template", "<skyCondition> | <fn=1>\xf2cb</fn> <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+                     ] 36000
+                    , Run Date "%F (%a) %T" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<fc=#ababab>%date%</fc> %LFPG%"
+       }
