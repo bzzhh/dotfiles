@@ -1,0 +1,14 @@
+/home/steven/.npm-global/lib
+├── @prettier/plugin-php@0.16.1
+├── @prettier/plugin-xml@0.13.1
+├── bs-platform@9.0.1
+├── eslint@7.21.0
+├── http-server@0.12.3
+├── intelephense@1.6.3
+├── neovim@4.9.0
+├── npm@7.5.4
+├── prettier-plugin-twig-melody@0.4.6
+├── prettier@2.2.1
+├── stylelint@13.12.0
+└── yarn@1.22.10
+

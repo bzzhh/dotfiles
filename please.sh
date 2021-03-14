@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dotfiles=(
-    .composer/composer.json
+    .config/composer/composer.json
     .config/lf
     .config/nvim/coc-settings.json
     .config/nvim/ftplugin
@@ -58,6 +58,7 @@ do
             ;;
         "report installed packages")
             pacman -Qqe > pkglist.txt
+            npm -g list > npm-global.txt
             break
             ;;
         "abort")
@@ -66,4 +67,3 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
-

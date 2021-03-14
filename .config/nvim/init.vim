@@ -22,7 +22,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " Coc extensions
 let g:coc_global_extensions = [
-    \ 'coc-json', 
+    \ 'coc-json',
     \ 'coc-eslint',
     \ 'coc-tailwindcss',
     \ 'coc-haxe',
@@ -423,22 +423,25 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " ale
-let g:ale_fixers = {'php': ['prettier', 'php_cs_fixer'],
-    \'css': ['prettier'],
-    \'javascript': ['eslint', 'prettier'], 
+let g:ale_fixers = {
+    \'*': ['remove_trailing_lines', 'trim_whitespace'],
+    \'php': ['prettier', 'php_cs_fixer'],
+    \'css': ['styleliint', 'prettier'],
+    \'javascript': ['eslint', 'prettier'],
     \'json': ['prettier'],
     \'python': ['autopep8','yapf'],
     \'typescript': ['eslint', 'prettier'],
+    \'twig': ['prettier'],
     \'markdown': ['prettier'],
     \'xml': ['prettier'],
     \'typescriptreact': ['prettier'], }
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
-    \'ocaml': ['merlin'], 
+    \'ocaml': ['merlin'],
     \'javascript': ['eslint'],
     \'javascriptreact': ['eslint'],
     \'python': ['flake8','pylint'],
-    \'typescript': ['eslint', 'tsserver'], 
+    \'typescript': ['eslint', 'tsserver'],
     \'typescriptreact': ['eslint', 'tsserver'], }
 let g:ale_fix_on_save = 1
 
@@ -506,7 +509,7 @@ let g:netrw_browse_split = 4
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
 
-" emmet 
+" emmet
 let g:user_emmet_leader_key=','
 
 "*****************************************************************************
@@ -775,4 +778,3 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " project config - personnal file (not on my git repository)
 " source $VIMCONFIG/projects.nvimrc
-

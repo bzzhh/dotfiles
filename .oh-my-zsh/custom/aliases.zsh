@@ -7,3 +7,7 @@ alias \
 alias \
     vim=nvim \
     magit="nvim -c MagitOnly"
+
+# php
+alias \
+    sf=symfony

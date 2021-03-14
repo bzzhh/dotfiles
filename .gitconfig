@@ -6,9 +6,10 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
+
 [user]
 	email = sjehann@gmail.com 
-	name = catsoap
+	name = sjnnya
 [core]
 	excludesfile = /home/steven/.gitignore_global
 	editor = nvim

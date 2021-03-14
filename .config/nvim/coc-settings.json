@@ -1,5 +1,5 @@
 {
-  "intelephense.licenceKey": "/home/steven/intelephense/license.txt",
+  "intelephense.licenceKey": "/home/steven/.config/intelephense/license.txt",
   "languageserver": {
     "golang": {
       "command": "gopls",
