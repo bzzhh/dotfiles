@@ -9,7 +9,6 @@ dotfiles=(
     .config/nvim/ultisnips/
     .config/pgcli/config
     .config/tmux/tmux.conf
-    .config/xmobar
     .emacs.d/init.el
     .gitconfig
     .gitignore_global
@@ -20,7 +19,6 @@ dotfiles=(
     .zshrc
     .myclirc
     .xinitrc
-    .xmonad/xmonad.hs
     .Xresources
 )
 
@@ -29,7 +27,7 @@ install()
     for f in "${dotfiles[@]}"
     do
         d="${f%/*}"
-        [[ $d =~ "/" && ! -d $d ]] && mkdir -p "$d"
+        [ $d =~ "/" && ! -d $d ] && mkdir -p "$d"
         rsync -av "$f" ~/"$f"
     done
 }

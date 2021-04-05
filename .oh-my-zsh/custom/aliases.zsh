@@ -11,3 +11,4 @@ alias \
 # php
 alias \
     sf=symfony
+

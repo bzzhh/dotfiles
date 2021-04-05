@@ -2,13 +2,13 @@ Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
-Xft.autohint: true
-Xft.hintstyle: hintfull
+Xft.autohint: false
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcdfilter
 XTerm*renderFont: true
 XTerm*faceName: xft:Source Code Pro, \
                 xft:JoyPixels:size=12, \
-                xft:Monospace:style=Medium:size=12   
+                xft:Monospace:style=Medium:size=12
 XTerm*faceSize: 8
 XTerm*utf8: 2
 XTerm*locale: true

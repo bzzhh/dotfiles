@@ -433,8 +433,10 @@ let g:ale_fixers = {
     \'typescript': ['eslint', 'prettier'],
     \'twig': ['prettier'],
     \'markdown': ['prettier'],
+    \'html': ['prettier'],
     \'xml': ['prettier'],
-    \'typescriptreact': ['prettier'], }
+    \'typescriptreact': ['prettier'],
+    \'yaml': ['prettier']}
 let g:ale_linters = {'php': ['php', 'psalm'],
     \ 'go': ['golint', 'go vet'],
     \'ocaml': ['merlin'],

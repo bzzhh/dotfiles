@@ -2,6 +2,7 @@
 ├── @prettier/plugin-php@0.16.1
 ├── @prettier/plugin-xml@0.13.1
 ├── bs-platform@9.0.1
+├── colortest@3.0.4
 ├── eslint@7.21.0
 ├── http-server@0.12.3
 ├── intelephense@1.6.3
