@@ -9,7 +9,7 @@
 
 [user]
 	email = sjehann@gmail.com 
-	name = sjnnya
+	name = steven
 [core]
 	excludesfile = /home/steven/.gitignore_global
 	editor = nvim

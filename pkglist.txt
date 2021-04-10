@@ -17,6 +17,7 @@ checkbashisms
 cmake
 dash
 dashbinsh
+deadbeef
 decrediton
 discord
 dmenu
@@ -46,6 +47,7 @@ gvim
 gzip
 htop
 hugo
+id3
 inkscape
 jq
 jre7-openjdk
@@ -85,6 +87,7 @@ parole
 paru
 pass
 patch
+perl-image-exiftool
 php
 php-gd
 php-intl
@@ -112,6 +115,7 @@ ruby-zpng
 sed
 shortwave
 slack-desktop
+sonic-visualiser
 sudo
 synapse
 telegram-desktop

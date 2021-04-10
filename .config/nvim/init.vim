@@ -200,12 +200,12 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme zenburn
+set termguicolors
+colorscheme zenburn
+hi Normal guibg=NONE ctermbg=NONE
 
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
 
 let g:CSApprox_loaded = 1
 
@@ -426,7 +426,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ale_fixers = {
     \'*': ['remove_trailing_lines', 'trim_whitespace'],
     \'php': ['prettier', 'php_cs_fixer'],
-    \'css': ['styleliint', 'prettier'],
+    \'css': ['stylelint', 'prettier'],
     \'javascript': ['eslint', 'prettier'],
     \'json': ['prettier'],
     \'python': ['autopep8','yapf'],
