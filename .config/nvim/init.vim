@@ -63,6 +63,7 @@ Plug 'jdonaldson/vaxe'
 Plug 'rescript-lang/vim-rescript'
 Plug 'dyng/ctrlsf.vim'
 Plug 'jreybert/vimagit'
+Plug 'junegunn/vim-emoji'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -291,6 +292,10 @@ nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
+
+" emojis
+set completefunc=emoji#complete
+nnoremap <silent> <Leader>_ :s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>:noh<CR>
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
