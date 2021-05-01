@@ -64,6 +64,7 @@ Plug 'rescript-lang/vim-rescript'
 Plug 'dyng/ctrlsf.vim'
 Plug 'jreybert/vimagit'
 Plug 'junegunn/vim-emoji'
+Plug 'psliwka/vim-smoothie'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
