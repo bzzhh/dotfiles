@@ -197,6 +197,11 @@ set undodir=~/.config/nvim/undodir
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
+if &term =~ '256color'
+  " disable Background Color Erase (BCE)
+  set t_ut=
+endif
+set nocompatible
 syntax on
 set ruler
 set number
@@ -443,7 +448,7 @@ let g:ale_fixers = {
     \'xml': ['prettier'],
     \'typescriptreact': ['prettier'],
     \'yaml': ['prettier']}
-let g:ale_linters = {'php': ['php', 'psalm'],
+let g:ale_linters = {'php': ['php'],
     \ 'go': ['golint', 'go vet'],
     \'ocaml': ['merlin'],
     \'javascript': ['eslint'],
@@ -553,6 +558,9 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+let g:go_auto_type_info = 1
+let g:go_doc_popup_window = 1
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
