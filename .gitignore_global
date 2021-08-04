@@ -1,7 +1,0 @@
-cmd/exp
-api/exp/main.go
-exp/main.go
-PlayCommand.php
-PlayCommand.php.cache
-.vscode/settings.json
-.prettierignore

@@ -59,11 +59,15 @@
 (add-hook 'nov-mode-hook 'my-nov-font-setup)
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
+;; (use-package! lsp-tailwindcss)
 (use-package! lsp-mode
   :config
   (add-to-list 'lsp-file-watch-ignored "[/\\\]vendor$")
   (setq lsp-file-watch-threshold 20000)
-  (setq lsp-enable-snippets nil))
+  (setq lsp-enable-snippets nil)
+(setq +format-with-lsp nil))
+
+(add-hook 'css-mode-hook #'lsp)
 
 (use-package web-mode
   :commands web-mode
@@ -75,16 +79,16 @@
   :config
   (add-to-list 'web-mode-engines-alist
                '("django" . "\\.html\\.twig\\'")))
+(setq-hook! 'web-mode-hook +format-with 'prettier-prettify)
 
 (require 'php-cs-fixer)
-(add-hook 'before-save-hook 'php-cs-fixer-before-save)
-(setq-hook! 'php-mode-hook
-  +format-with-lsp nil)
+
 (add-hook! 'php-mode-hook
   (custom-set-variables
     '(php-cs-fixer-config-option "/home/steven/.config/php/php-cs-fixer.php")
     '(php-cs-fixer-rules-fixer-part-options '(""))
     '(php-cs-fixer-rules-level-part-options nil)))
+(add-hook! 'before-save-hook #'php-cs-fixer-before-save)
 
 (setq
  lsp-intelephense-licence-key (replace-regexp-in-string "\n\\'" "" (shell-command-to-string "pass license/intelephense"))
