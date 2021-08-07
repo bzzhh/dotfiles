@@ -82,14 +82,16 @@
 (setq-hook! 'web-mode-hook +format-with 'prettier-prettify)
 
 (require 'php-cs-fixer)
+(require 'ligo-mode)
+(with-eval-after-load 'ligo-mode (ligo-setup-lsp))
 
 (add-hook! 'php-mode-hook
   (custom-set-variables
-    '(php-cs-fixer-config-option "/home/steven/.config/php/php-cs-fixer.php")
+    '(php-cs-fixer-config-option "~/.config/php/php-cs-fixer.php")
     '(php-cs-fixer-rules-fixer-part-options '(""))
-    '(php-cs-fixer-rules-level-part-options nil)))
+    '(php-cs-fixer-rules-level-part-options nil))
+  (setq lsp-intelephense-licence-key (replace-regexp-in-string "\n\\'" "" (shell-command-to-string "pass license/intelephense"))))
+
 (add-hook! 'before-save-hook #'php-cs-fixer-before-save)
 
-(setq
- lsp-intelephense-licence-key (replace-regexp-in-string "\n\\'" "" (shell-command-to-string "pass license/intelephense"))
- projectile-project-search-path '("~/code/"))
+(setq projectile-project-search-path '("~/code/"))
