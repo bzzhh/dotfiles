@@ -73,6 +73,7 @@
   :commands web-mode
   :mode
   (("\\.html\\'"        . web-mode)
+   ("\\.gohtml\\'"       . web-mode)
    ("\\.phtml\\'"       . web-mode)
    ("\\.tpl\\.php\\'"   . web-mode)
    ("\\.html\\.twig\\'" . web-mode))

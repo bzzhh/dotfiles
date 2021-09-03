@@ -65,6 +65,8 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'jreybert/vimagit'
 Plug 'junegunn/vim-emoji'
 Plug 'psliwka/vim-smoothie'
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -305,6 +307,9 @@ nnoremap <silent> <Leader>_ :s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0)
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
+
+" maximizer
+let g:maximizer_set_default_mapping = 0
 
 "*****************************************************************************
 "" Commands
@@ -767,7 +772,7 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR   :silent call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
