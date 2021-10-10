@@ -114,6 +114,10 @@ lvim.plugins = {
         vim.g.mkdp_auto_start = 1
       end,
     },
+    {
+      event = "BufRead",
+     "editorconfig/editorconfig-vim",
+    },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

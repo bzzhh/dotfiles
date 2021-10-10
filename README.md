@@ -1,13 +1,17 @@
-# real-world MacOS/Linux (Pop OS)
+# dotfiles
 
-Clone me:
+## Installing
 
-```
-git clone git@github.com:bzzhh/dotfiles.git --recursive
+Run `stow` to symlink everything or just select what you want
+
+```bash
+stow */ # Everything (the '/' ignores the README)
 ```
 
-Choose emacs flavour:
+```bash
+stow zsh # Just my zsh config
+```
 
-```
-echo 'doom' > ~/.emacs-profile
-```
+## Resources
+
+- https://github.com/ChristianChiarulli/Machfiles
