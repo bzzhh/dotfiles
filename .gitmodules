@@ -4,3 +4,6 @@
 [submodule "emacs/.emacs-configs/doom"]
 	path = emacs/.emacs-configs/doom
 	url = https://github.com/hlissner/doom-emacs
+[submodule "emacs/.emacs-configs/spacemacs"]
+	path = emacs/.emacs-configs/spacemacs
+	url = https://github.com/syl20bnr/spacemacs

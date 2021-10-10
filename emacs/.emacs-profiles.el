@@ -1,3 +1,5 @@
 (("default"   . ((user-emacs-directory   . "~/.config/my-emacs")))
  ("doom"      . ((user-emacs-directory   . "~/.emacs-configs/doom")
-                 (env . (("DOOMDIR"      . "~/.config/doom"))))))
+                 (env . (("DOOMDIR"      . "~/.config/doom")))))
+ ("spacemacs" . ((user-emacs-directory   . "~/.emacs-configs/spacemacs")
+                 (env . (("SPACEMACSDIR" . "~/.config/spacemacs"))))))
