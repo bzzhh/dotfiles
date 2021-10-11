@@ -118,12 +118,8 @@ lvim.plugins = {
       event = "BufRead",
      "editorconfig/editorconfig-vim",
     },
+    {"~/code/ligo/tools/vim/ligo/start/ligo"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
-lvim.autocommands.custom_groups = {
-  { "BufNewFile,BufRead", "*.mligo", "setfiletype mligo" },
-  { "BufNewFile,BufRead", "*.ligo", "setfiletype ligo" },
-  { "BufNewFile,BufRead", "*.religo", "setfiletype religo" },
-}
-
+-- lvim.autocommands.custom_groups = { }
