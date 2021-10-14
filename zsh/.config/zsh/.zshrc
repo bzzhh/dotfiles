@@ -76,7 +76,7 @@ autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
 
 # TODO Remove these
-setxkbmap -option caps:escape
+[ ! -t 0 ] && setxkbmap -option caps:escape
 [ ! -t 0 ] && xset r rate 210 40
 
 # Speedy keys
