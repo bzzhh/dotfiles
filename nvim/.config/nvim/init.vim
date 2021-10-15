@@ -430,7 +430,11 @@ nmap <leader>c :CtrlSFFocus<CR>
 nmap <leader>C :CtrlSFToggle<CR>
 
 " Use Ripgrep with CtrlSF for performance
-let g:ctrlsf_ackprg = '/usr/bin/rg'
+if system('uname') =~ "Darwin"
+  let g:ctrlsf_ackprg = '/usr/local/bin/rg'
+else 
+  let g:ctrlsf_ackprg = '/usr/bin/rg'
+endif
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
