@@ -102,6 +102,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   }
 -- }
 
+-- formatters
+lvim.lang.go.formatters = { { exe = "gofumpt" }, { exe = "golines" } }
+lvim.lang.php.formatters = {   {
+    exe = "phpcbf",
+    args = {"--standard=PSR12" },
+    to_stdin = true
+  } }
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup({{exe = "prettier", filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact"} }})
 
@@ -112,10 +119,9 @@ lvim.lsp.on_attach_callback = function(client, _)
   end
 end
 
+-- linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup({{exe = "eslint_d", filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }})
-
-lvim.lang.go.formatters = { { exe = "gofumpt" }, { exe = "golines" } }
 
 -- Additional Plugins
 lvim.plugins = {
