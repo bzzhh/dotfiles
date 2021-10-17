@@ -11,7 +11,11 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
+lvim.lint_on_save = true
 lvim.colorscheme = "zenburn"
+
+-- settings
+vim.opt.wrap = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -97,6 +101,21 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     exe = "flake8",
 --   }
 -- }
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup({{exe = "prettier", filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact"} }})
+
+lvim.lsp.on_attach_callback = function(client, _)
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
+end
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup({{exe = "eslint_d", filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }})
+
+lvim.lang.go.formatters = { { exe = "gofumpt" }, { exe = "golines" } }
 
 -- Additional Plugins
 lvim.plugins = {
