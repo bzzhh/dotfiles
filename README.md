@@ -15,3 +15,4 @@ stow zsh # Just my zsh config
 ## Resources
 
 - https://github.com/ChristianChiarulli/Machfiles
+- https://www.davidbegin.com/how-i-use-tmux/
