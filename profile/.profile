@@ -35,6 +35,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.fnm:$PATH
 export PATH=$HOME/.emacs-configs/doom/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 export PATH=$HOME/.symfony/bin:$PATH
