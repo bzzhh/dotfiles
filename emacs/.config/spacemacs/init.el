@@ -43,6 +43,7 @@ This function should only modify configuration layer settings."
      ;; auto-completion
      better-defaults
      emacs-lisp
+     epub
      ;; git
      (go :variables
          go-tab-width 4
@@ -56,7 +57,8 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      (ocaml :variables ocaml-format-on-save t)
-     ;; org
+     (org :variables
+          org-enable-roam-support t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
