@@ -26,7 +26,12 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export GOROOT=/usr/local/go
+if [ -f "/etc/arch-release" ]; then
+  export GOROOT=/usr/lib/go
+else
+  export GOROOT=/usr/local/go
+fi
+
 export GOPATH=$HOME/.local/share/go
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
