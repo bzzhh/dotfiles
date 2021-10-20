@@ -36,6 +36,7 @@ export GOPATH=$HOME/.local/share/go
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/smartpy-cli:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.fnm:$PATH
 export PATH=$HOME/.emacs-configs/doom/bin:$PATH
