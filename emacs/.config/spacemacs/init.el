@@ -540,8 +540,14 @@ See the header of this file for more information."
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
-If you are unsure, try setting them in `dotspacemacs/user-config' first.")
+If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
+  (if (eq system-type 'darwin)
+     (setq-default dotspacemacs-default-font '("UbuntuMono Nerd Font"
+                                 :size 12.0
+                                 :weight normal
+                                 :width normal)))
+)
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
