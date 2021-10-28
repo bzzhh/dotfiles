@@ -36,6 +36,9 @@ alias magit="nvim -c MagitOnly"
 # php
 alias sf=symfony
 
+#tezos 
+alias tc=tezos-client 
+
 # gpg encryption
 # verify signature for isos
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
