@@ -41,7 +41,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; auto-completion
-     better-defaults
+     ;; better-defaults
      emacs-lisp
      epub
      ;; git
@@ -79,6 +79,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '
    (
+      ligo-mode 
       (term-cursor :location (recipe :fetcher github :repo "h0d/term-cursor.el" ))
    )
 
@@ -549,7 +550,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
                                  :size 12.0
                                  :weight normal
                                  :width normal)))
-  (setq org-roam-directory "~/org-roam")
+
+  (setq org-roam-directory "~/RoamNotes")
+  (setq org-roam-v2-ack t)
 )
 
 (defun dotspacemacs/user-load ()

@@ -90,17 +90,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- set a formatter if you want to override the default lsp one (if it exists)
-lvim.lang.python.formatters = {
-  {
-    exe = "black",
-  }
-}
--- set an additional linter
-lvim.lang.python.linters = {
-  {
-    exe = "flake8",
-  }
-}
 
 -- dap
 -- lvim.builtin.dap.active = true
@@ -136,15 +125,22 @@ lvim.lang.python.linters = {
 --   },
 -- }
 
--- formatters
-lvim.lang.go.formatters = { { exe = "gofumpt" }, { exe = "golines" } }
-lvim.lang.php.formatters = {   {
-    exe = "phpcbf",
-    args = {"--standard=PSR12" },
-    to_stdin = true
-  } }
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup({{exe = "prettier", filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact"} }})
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup({{exe = "eslint_d", filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }})
+lvim.lang.markdown = {formatters = {{ exe = "markdownlint" }}, linters = {{ exe = "markdownlint" }}}
+lvim.lang.go.formatters = {{ exe = "gofumpt" }, { exe = "golines" }}
+lvim.lang.php.formatters = {{ exe = "phpcsfixer" }}
+lvim.lang.python = {formatters = {{exe = "black"}}, linters = {{exe = "flake8"}}}
+
+formatters.setup({{exe = "prettier", filetypes = {
+  "htmldjango.twig",
+  "javascript",
+  "javascriptreact",
+  "php",
+  "typescript",
+  "typescriptreact",
+} }})
 
 lvim.lsp.on_attach_callback = function(client, _)
   if client.name == "tsserver" then
@@ -152,10 +148,6 @@ lvim.lsp.on_attach_callback = function(client, _)
     client.resolved_capabilities.document_range_formatting = false
   end
 end
-
--- linters
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup({{exe = "eslint_d", filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } }})
 
 -- Additional Plugins
 lvim.plugins = {
@@ -180,5 +172,6 @@ lvim.plugins = {
     {"~/code/ligo/tools/vim/ligo/start/ligo"},
 }
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = { }
+lvim.autocommands.custom_groups = {
+  { "BufNewFile,BufRead", "*.pcss", "set filetype=css" }
+}
