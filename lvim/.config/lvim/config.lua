@@ -154,6 +154,7 @@ lvim.plugins = {
     {"jnurmine/Zenburn"},
     {"lumiliet/vim-twig"},
     {"purescript-contrib/purescript-vim"},
+    {"rescript-lang/vim-rescript"},
     {
       "folke/trouble.nvim",
       cmd = "TroubleToggle",
