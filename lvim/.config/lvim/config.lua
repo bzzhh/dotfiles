@@ -64,34 +64,17 @@ end
 
 -- Additional Plugins
 lvim.plugins = {
-	{ "jnurmine/Zenburn" },
-	{ "lumiliet/vim-twig" },
-	{ "purescript-contrib/purescript-vim" },
-	{ "rescript-lang/vim-rescript" },
-	{
-		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		ft = "markdown",
-		config = function()
-			vim.g.mkdp_auto_start = 1
-		end,
-	},
-	{
-		"ray-x/lsp_signature.nvim",
-		config = function()
-			require("lsp_signature").on_attach()
-		end,
-		event = "InsertEnter",
-	},
-	{
-		event = "BufRead",
-		"editorconfig/editorconfig-vim",
-	},
-	{ "~/code/ligo/tools/vim/ligo/start/ligo" },
+	require("plugins.colorizer"),
+	require("plugins.editorconfig"),
+	require("plugins.lsp_signature"),
+	require("plugins.markdown_preview"),
+	require("plugins.neoscroll"),
+	require("plugins.rescript"),
+	require("plugins.todo_comments"),
+	require("plugins.trouble"),
+	require("plugins.vim_matchup"),
+	require("plugins.vim_twig"),
+	require("plugins.zenburn"),
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
