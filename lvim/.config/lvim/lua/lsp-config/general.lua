@@ -6,3 +6,5 @@ lvim.lsp.on_attach_callback = function(client, _)
 		client.resolved_capabilities.document_range_formatting = false
 	end
 end
+
+vim.list_extend(lvim.lsp.override, { "cssls" })

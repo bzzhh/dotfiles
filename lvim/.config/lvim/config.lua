@@ -54,14 +54,6 @@ require("lint.selene")
 require("lsp-config.general")
 require("lsp-config.tailwindcss")
 
--- generic LSP settings
-lvim.lsp.on_attach_callback = function(client, _)
-	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end
-end
-
 -- Additional Plugins
 lvim.plugins = {
 	require("plugins.colorizer"),
