@@ -1,0 +1,8 @@
+[lvim]
+any = true
+
+[vim]
+any = true
+
+[require]
+any = true
