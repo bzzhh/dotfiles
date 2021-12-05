@@ -67,6 +67,7 @@ lvim.plugins = {
 	require("plugins.vim_matchup"),
 	require("plugins.vim_twig"),
 	require("plugins.zenburn"),
+	require("plugins.ligo"),
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
