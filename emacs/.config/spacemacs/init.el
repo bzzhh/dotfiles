@@ -81,6 +81,8 @@ This function should only modify configuration layer settings."
    (
       ligo-mode 
       (term-cursor :location (recipe :fetcher github :repo "h0d/term-cursor.el" ))
+      lsp-rescript
+      rescript-mode
    )
 
    ;; A list of packages that cannot be updated.

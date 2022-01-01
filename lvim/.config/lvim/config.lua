@@ -66,7 +66,7 @@ lvim.plugins = {
 	require("plugins.trouble"),
 	require("plugins.vim_matchup"),
 	require("plugins.vim_twig"),
-	require("plugins.zenburn"),
+	require("plugins.colorsheme"),
 	require("plugins.ligo"),
 }
 
