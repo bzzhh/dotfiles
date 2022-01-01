@@ -12,10 +12,6 @@ stow */ # Everything (the '/' ignores the README)
 stow zsh # Just my zsh config
 ```
 
-## Bugs
-
-If tmux plugins are not installed automatically, run `tmux source ~/.config/tmux/tmux.conf`
-
 ## Resources
 
 - <https://systemcrafters.cc>
