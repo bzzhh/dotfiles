@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+local ft = require('Comment.ft')
+ft.set('ligo', '//%s')
+ft.set('mligo', '//%s')
+
 comment.setup({
 	pre_hook = function(ctx)
 		local U = require("Comment.utils")
