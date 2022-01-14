@@ -102,6 +102,15 @@ return packer.startup(function(use)
 	-- Markdown
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
 
+	-- TODO
+	use({
+		"folke/todo-comments.nvim",
+		event = "BufRead",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
