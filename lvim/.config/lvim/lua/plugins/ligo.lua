@@ -1,6 +1,9 @@
 local M = { "~/code/ligo/tools/vim/ligo/start/ligo" }
 local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
+local ft = require("Comment.ft")
+
+ft({ "ligo", "mligo" }, { "//%s" })
 
 configs.ligolang = {
 	default_config = {
@@ -21,5 +24,5 @@ local opts = {
 	-- capabilities = require("user.lsp.handlers").capabilities,
 }
 
-require("lspconfig").ligolang.setup{opts}
+require("lspconfig").ligolang.setup({ opts })
 return M
