@@ -1,4 +1,4 @@
-local M = { "~/code/ligo/tools/vim/ligo/start/ligo" }
+local M = {}
 local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 local ft = require("Comment.ft")
