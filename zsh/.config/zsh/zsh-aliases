@@ -40,8 +40,9 @@ alias sf=symfony
 alias tc=tezos-client 
 alias mc="tezos-client --mode mockup --base-dir /tmp/mockup"
 # alias refresh-ligo="docker rmi -f $(docker images 'ligolang/ligo' -a -q)"
-alias refresh-ligo="rm -f ~/.local/bin/ligo && wget https://ligolang.org/bin/linux/ligo -O ~/.local/bin/ligo && chmod +x ~/.local/bin/ligo"
+alias refresh-ligo="wget https://ligolang.org/bin/linux/ligo -O ~/.local/bin/ligo && chmod +x ~/.local/bin/ligo"
 alias refresh-sandbox="docker rmi -f $(docker images 'oxheadalpha/flextesa:latest' -a -q)"
+alias refresh-tc="wget https://github.com/serokell/tezos-packaging/releases/latest/download/tezos-client -O ~/.local/bin/tezos-client && chmod +x ~/.local/bin/tezos-client"
 
 # gpg encryption
 # verify signature for isos
