@@ -2,7 +2,6 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "zenburn"
 vim.opt.wrap = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -11,6 +10,7 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
+lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
@@ -34,39 +34,39 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- Formatters
-require("format.black")
-require("format.gofumpt")
-require("format.golines")
-require("format.markdownlint")
-require("format.phpcsfixer")
-require("format.prettierd")
-require("format.rustfmt")
-require("format.stylua")
+require("user.format.black")
+require("user.format.gofumpt")
+require("user.format.golines")
+require("user.format.markdownlint")
+require("user.format.phpcsfixer")
+require("user.format.prettierd")
+require("user.format.rustfmt")
+require("user.format.stylua")
 
 --Linters
-require("lint.eslint_d")
-require("lint.flake8")
-require("lint.markdownlint")
-require("lint.selene")
+require("user.lint.eslint_d")
+require("user.lint.flake8")
+require("user.lint.markdownlint")
+require("user.lint.selene")
 
 --LSP
-require("lsp-config.general")
-require("lsp-config.tailwindcss")
+require("user.lsp-config.general")
+require("user.lsp-config.tailwindcss")
 
 -- Additional Plugins
 lvim.plugins = {
-	require("plugins.colorizer"),
-	require("plugins.editorconfig"),
-	require("plugins.lsp_signature"),
-	require("plugins.markdown_preview"),
-	require("plugins.neoscroll"),
-	require("plugins.rescript"),
-	require("plugins.todo_comments"),
-	require("plugins.trouble"),
-	require("plugins.vim_matchup"),
-	require("plugins.vim_twig"),
-	require("plugins.colorsheme"),
-	require("plugins.ligo"),
+	require("user.plugins.colorizer"),
+	require("user.plugins.editorconfig"),
+	require("user.plugins.lsp_signature"),
+	require("user.plugins.markdown_preview"),
+	require("user.plugins.neoscroll"),
+	require("user.plugins.rescript"),
+	require("user.plugins.todo_comments"),
+	require("user.plugins.trouble"),
+	require("user.plugins.vim_matchup"),
+	require("user.plugins.vim_twig"),
+	require("user.plugins.colorsheme"),
+	require("user.plugins.ligolang"),
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
