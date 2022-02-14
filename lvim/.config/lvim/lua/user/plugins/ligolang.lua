@@ -4,7 +4,7 @@ local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 local ft = require("Comment.ft")
 
-ft({ "ligo", "mligo" }, { "//%s" })
+ft({ "ligo", "mligo" }, { "(*%s*)" })
 
 configs.ligolang = {
 	default_config = {
