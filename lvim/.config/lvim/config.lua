@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.lint_on_save = true
 vim.opt.wrap = true
 
@@ -67,6 +67,7 @@ lvim.plugins = {
 	require("user.plugins.vim_twig"),
 	require("user.plugins.colorsheme"),
 	require("user.plugins.ligolang"),
+	require("user.plugins.vim_reason"),
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
