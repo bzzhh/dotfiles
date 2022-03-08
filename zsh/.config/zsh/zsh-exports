@@ -5,3 +5,5 @@ export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 eval "$(fnm env)"
 eval "$(zoxide init zsh)"
+export DENO_INSTALL="/home/steven/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
