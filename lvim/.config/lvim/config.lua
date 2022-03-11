@@ -68,6 +68,7 @@ lvim.plugins = {
 	require("user.plugins.colorsheme"),
 	require("user.plugins.ligolang"),
 	require("user.plugins.vim_reason"),
+	require("user.plugins.neorg"),
 	require("user.plugins.sml"),
 }
 

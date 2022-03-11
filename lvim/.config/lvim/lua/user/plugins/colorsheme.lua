@@ -1,5 +1,7 @@
 local M = { "jnurmine/Zenburn" }
 
-lvim.colorscheme = "zenburn"
+pcall(function()
+  lvim.colorscheme = "zenburn"
+  end)
 
 return M
