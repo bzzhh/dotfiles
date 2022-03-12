@@ -31,7 +31,7 @@ M.config = function()
 			nls.builtins.formatting.stylua,
 			nls.builtins.formatting.black.with({ extra_args = { "--fast" }, filetypes = { "python" } }),
 			nls.builtins.diagnostics.shellcheck,
-			nls.builtins.diagnostics.luacheck,
+			nls.builtins.diagnostics.selene,
 			nls.builtins.diagnostics.markdownlint.with({
 				filetypes = { "markdown" },
 			}),

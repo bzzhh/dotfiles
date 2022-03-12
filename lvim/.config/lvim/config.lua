@@ -35,7 +35,7 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- Language Specific
-require("user.null_ls").config()
+require("user.nls").config()
 
 --LSP
 require("user.lsp-config.general")
