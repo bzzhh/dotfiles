@@ -1,4 +1,5 @@
 -- general
+lvim.colorscheme = "zenburn"
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = true
@@ -54,23 +55,8 @@ require("user.lsp-config.general")
 require("user.lsp-config.tailwindcss")
 
 -- Additional Plugins
-lvim.plugins = {
-	require("user.plugins.colorizer"),
-	require("user.plugins.editorconfig"),
-	require("user.plugins.lsp_signature"),
-	require("user.plugins.markdown_preview"),
-	require("user.plugins.neoscroll"),
-	require("user.plugins.rescript"),
-	require("user.plugins.todo_comments"),
-	require("user.plugins.trouble"),
-	require("user.plugins.vim_matchup"),
-	require("user.plugins.vim_twig"),
-	require("user.plugins.colorsheme"),
-	require("user.plugins.ligolang"),
-	require("user.plugins.vim_reason"),
-	require("user.plugins.neorg"),
-	require("user.plugins.sml"),
-}
+require("user.plugins").config()
+require("user.ligolang")
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
