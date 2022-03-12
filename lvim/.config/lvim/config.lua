@@ -34,21 +34,8 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- Formatters
-require("user.format.black")
-require("user.format.gofumpt")
-require("user.format.golines")
-require("user.format.markdownlint")
-require("user.format.phpcsfixer")
-require("user.format.prettierd")
-require("user.format.rustfmt")
-require("user.format.stylua")
-
---Linters
-require("user.lint.eslint_d")
-require("user.lint.flake8")
-require("user.lint.markdownlint")
-require("user.lint.selene")
+-- Language Specific
+require("user.null_ls").config()
 
 --LSP
 require("user.lsp-config.general")
