@@ -53,10 +53,10 @@ require("user.lint.selene")
 --LSP
 require("user.lsp-config.general")
 require("user.lsp-config.tailwindcss")
+require("user.lsp-config.ligolang")
 
 -- Additional Plugins
 require("user.plugins").config()
-require("user.ligolang")
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
