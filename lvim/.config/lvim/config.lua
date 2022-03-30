@@ -1,5 +1,6 @@
 -- general
-lvim.colorscheme = "zenburn"
+vim.g["gruvbox_material_background"] = "soft"
+lvim.colorscheme = "gruvbox-material"
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = true
@@ -10,7 +11,8 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"

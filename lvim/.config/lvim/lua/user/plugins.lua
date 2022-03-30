@@ -9,7 +9,7 @@ M.config = function()
 			end,
 			event = "BufRead",
 		},
-		{ "jnurmine/Zenburn" },
+		{ "sainnhe/gruvbox-material" },
 		{ "editorconfig/editorconfig-vim" },
 		{
 			"ray-x/lsp_signature.nvim",
