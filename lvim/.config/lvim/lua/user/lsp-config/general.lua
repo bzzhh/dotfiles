@@ -7,4 +7,4 @@ lvim.lsp.on_attach_callback = function(client, _)
 	end
 end
 
-vim.list_extend(lvim.lsp.override, { "cssls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "cssls" })
