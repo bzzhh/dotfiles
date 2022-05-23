@@ -4,12 +4,18 @@
 
 Run `stow` to symlink everything or just select what you want
 
-```bash
+```sh
 stow */ # Everything (the '/' ignores the README)
 ```
 
-```bash
+```sh
 stow zsh # Just my zsh config
+```
+
+## Remember npm packages
+
+```sh
+npm -g list > npm-global.txt
 ```
 
 ## Resources
@@ -21,3 +27,4 @@ stow zsh # Just my zsh config
 - <https://www.davidbegin.com/how-i-use-tmux/>
 - <https://github.com/Antonio-Bennett/lvim>
 - <https://github.com/abzcoding/>
+- <https://lukesmith.xyz/>

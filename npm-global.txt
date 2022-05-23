@@ -1,0 +1,7 @@
+/home/steven/.fnm/node-versions/v18.1.0/installation/lib
+├── @fsouza/prettierd@0.20.0
+├── corepack@0.10.0
+├── eslint_d@12.1.0
+├── eslint@8.15.0
+└── npm@8.8.0
+

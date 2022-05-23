@@ -50,6 +50,7 @@ M.config = function()
 		},
 		{ "reasonml-editor/vim-reason-plus" },
 		{ "lumiliet/vim-twig" },
+		{ "ocaml/vim-ocaml" },
 	}
 end
 
