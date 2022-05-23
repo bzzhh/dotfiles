@@ -48,6 +48,7 @@ require("user.lsp-config.ligolang")
 require("user.plugins").config()
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
-lvim.autocommands.custom_groups = {
-	{ "BufNewFile,BufRead", "*.pcss", "set filetype=css" },
+lvim.autocmds = {
+	"BufNewFile,BufRead",
+	{ pattern = { "*.pcss" }, command = "set filetype=css" },
 }
