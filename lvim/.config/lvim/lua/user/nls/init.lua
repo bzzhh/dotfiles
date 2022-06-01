@@ -30,6 +30,7 @@ M.config = function()
 			}),
 			nls.builtins.formatting.stylua,
 			nls.builtins.formatting.black.with({ extra_args = { "--fast" }, filetypes = { "python" } }),
+			nls.builtins.formatting.isort.with({ extra_args = { "--profile", "black" }, filetypes = { "python" } }),
 			nls.builtins.formatting.markdownlint.with({
 				filetypes = { "markdown" },
 			}),
