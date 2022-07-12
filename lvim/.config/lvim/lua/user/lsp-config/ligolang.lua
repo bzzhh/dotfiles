@@ -9,7 +9,7 @@ configs[server_name] = {
 	default_config = {
 		cmd = { "ligo-squirrel" },
 		root_dir = util.find_git_ancestor,
-		filetypes = { "ligo", "mligo", "religo" },
+		filetypes = { "jsligo", "ligo", "mligo", "religo" },
 	},
 }
 

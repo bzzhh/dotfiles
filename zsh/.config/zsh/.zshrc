@@ -99,3 +99,7 @@ export BROWSER="firefox"
 
 # remap caps to escape
 [ ! -t 0 ] && setxkbmap -option caps:escape
+
+# fnm
+export PATH=/home/steven/.fnm:$PATH
+eval "`fnm env`"

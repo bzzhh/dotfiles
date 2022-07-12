@@ -12,6 +12,10 @@ stow */ # Everything (the '/' ignores the README)
 stow zsh # Just my zsh config
 ```
 
+### tmux
+
+Install plugins with `prefix + I`
+
 ## Remember npm packages
 
 ```sh

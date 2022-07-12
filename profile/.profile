@@ -47,3 +47,4 @@ export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 export PATH=$HOME/.symfony/bin:$PATH
 export PATH=$HOME/.poetry/bin:$PATH
 export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=yes
+. "$HOME/.cargo/env"
