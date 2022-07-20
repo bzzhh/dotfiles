@@ -43,6 +43,8 @@ alias refresh-ligo="wget https://ligolang.org/bin/linux/ligo -O ~/.local/bin/lig
 alias refresh-sandbox="docker rmi -f $(docker images 'oxheadalpha/flextesa:latest' -a -q)"
 alias refresh-tc="wget https://github.com/serokell/tezos-packaging/releases/latest/download/tezos-client -O ~/.local/bin/tezos-client && chmod +x ~/.local/bin/tezos-client"
 alias rmi="docker rmi -f \$(docker images -qf dangling=true)"
+alias '?'=duck
+alias '??'=google
 
 alias q="query-json"
 
