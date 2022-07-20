@@ -45,6 +45,9 @@ require("user.lsp-config.ligolang")
 -- Additional Plugins
 require("user.plugins").config()
 
+-- Custom key bindings
+require("user.keybindings").config()
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocmds = {
 	"BufNewFile,BufRead",
