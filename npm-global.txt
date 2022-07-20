@@ -1,7 +1,15 @@
-/home/steven/.fnm/node-versions/v18.1.0/installation/lib
-├── @fsouza/prettierd@0.20.0
+/home/steven/.fnm/node-versions/v16.15.1/installation/lib
+├── @fsouza/prettierd@0.21.1
 ├── corepack@0.10.0
-├── eslint_d@12.1.0
-├── eslint@8.15.0
-└── npm@8.8.0
+├── eslint_d@12.2.0
+├── eslint@8.18.0
+├── esy@0.6.12
+├── http-server@14.1.1
+├── log-requests@1.0.4
+├── markdownlint-cli@0.31.1
+├── neovim@4.10.1
+├── npm@8.11.0
+├── strapi@3.6.10
+├── tree-sitter-cli@0.20.6
+└── yarn@1.22.18
 

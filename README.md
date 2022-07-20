@@ -19,7 +19,7 @@ Install plugins with `prefix + I`
 ## Remember npm packages
 
 ```sh
-npm -g list > npm-global.txt
+npm --location=global list > npm-global.txt
 ```
 
 ## Resources
