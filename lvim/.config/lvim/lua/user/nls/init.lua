@@ -31,14 +31,14 @@ M.config = function()
 			nls.builtins.formatting.stylua,
 			nls.builtins.formatting.black.with({ extra_args = { "--fast" }, filetypes = { "python" } }),
 			nls.builtins.formatting.isort.with({ extra_args = { "--profile", "black" }, filetypes = { "python" } }),
-			nls.builtins.formatting.markdownlint.with({
-				filetypes = { "markdown" },
-			}),
+			-- nls.builtins.formatting.markdownlint.with({
+			-- 	filetypes = { "markdown" },
+			-- }),
 			nls.builtins.diagnostics.shellcheck,
 			nls.builtins.diagnostics.selene,
-			nls.builtins.diagnostics.markdownlint.with({
-				filetypes = { "markdown" },
-			}),
+			-- nls.builtins.diagnostics.markdownlint.with({
+			-- 	filetypes = { "markdown" },
+			-- }),
 			nls.builtins.diagnostics.golangci_lint.with({
 				condition = function(utils)
 					return utils.root_has_file(".golangci.yml")

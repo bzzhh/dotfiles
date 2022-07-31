@@ -41,6 +41,8 @@ require("user.nls").config()
 require("user.lsp-config.general")
 require("user.lsp-config.tailwindcss")
 require("user.lsp-config.ligolang")
+require("lvim.lsp.manager").setup("prosemd_lsp")
+
 
 -- Additional Plugins
 require("user.plugins").config()
