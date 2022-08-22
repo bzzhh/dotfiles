@@ -104,3 +104,4 @@ export BROWSER="firefox"
 # fnm
 export PATH=/home/steven/.fnm:$PATH
 eval "`fnm env`"
+eval "$(rbenv init -)"

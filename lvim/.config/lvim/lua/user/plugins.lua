@@ -12,6 +12,7 @@ M.config = function()
 			event = "BufRead",
 		},
 		{ "sainnhe/gruvbox-material" },
+		{ "towolf/vim-helm" },
 		{ "editorconfig/editorconfig-vim" },
 		{
 			"ray-x/lsp_signature.nvim",
