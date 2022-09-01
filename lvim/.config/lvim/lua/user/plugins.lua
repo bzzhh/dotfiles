@@ -58,7 +58,7 @@ M.config = function()
 		{ "earthly/earthly.vim" },
 		{ "petobens/poet-v" },
 		{
-			"rest-nvim/rest.nvim",
+			"NTBBloodbath/rest.nvim",
 			requires = { "nvim-lua/plenary.nvim" },
 			config = function()
 				require("rest-nvim").setup({
