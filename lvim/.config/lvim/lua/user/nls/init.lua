@@ -18,13 +18,13 @@ M.config = function()
 		sources = {
 			nls.builtins.formatting.prettierd.with({
 				condition = function(utils)
-					return not utils.root_has_file({ ".eslintrc", ".eslintrc.js" })
+					return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
 				end,
 				prefer_local = "node_modules/.bin",
 			}),
 			nls.builtins.formatting.eslint_d.with({
 				condition = function(utils)
-					return utils.root_has_file({ ".eslintrc", ".eslintrc.js" })
+					return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
 				end,
 				prefer_local = "node_modules/.bin",
 			}),
@@ -46,7 +46,7 @@ M.config = function()
 			}),
 			nls.builtins.code_actions.eslint_d.with({
 				condition = function(utils)
-					return utils.root_has_file({ ".eslintrc", ".eslintrc.js" })
+					return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
 				end,
 				prefer_local = "node_modules/.bin",
 			}),
