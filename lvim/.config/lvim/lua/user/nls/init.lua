@@ -35,7 +35,7 @@ M.config = function()
 			-- 	filetypes = { "markdown" },
 			-- }),
 			nls.builtins.diagnostics.shellcheck,
-			nls.builtins.diagnostics.selene,
+			nls.builtins.diagnostics.luacheck,
 			-- nls.builtins.diagnostics.markdownlint.with({
 			-- 	filetypes = { "markdown" },
 			-- }),
