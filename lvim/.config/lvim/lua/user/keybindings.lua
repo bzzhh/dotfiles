@@ -9,6 +9,12 @@ M.config = function()
 	}
 	lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 	lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+	lvim.builtin.which_key.mappings["l"]["f"] = {
+		function()
+			require("lvim.lsp.utils").format({ timeout_ms = 5000 })
+		end,
+		"Format",
+	}
 end
 
 return M
