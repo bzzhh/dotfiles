@@ -44,6 +44,7 @@ alias refresh-tc="wget https://github.com/serokell/tezos-packaging/releases/late
 alias rmi="docker rmi -f \$(docker images -qf dangling=true)"
 alias '?'=duck
 alias '??'=google
+alias lg=lazygit
 
 alias q="query-json"
 
