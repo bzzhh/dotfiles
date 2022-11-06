@@ -18,13 +18,15 @@ M.config = function()
 		sources = {
 			nls.builtins.formatting.prettierd.with({
 				condition = function(utils)
-					return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+                    local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+					return utils.has_file(files) or utils.root_has_file(files)
 				end,
 				prefer_local = "node_modules/.bin",
 			}),
 			nls.builtins.formatting.eslint_d.with({
 				condition = function(utils)
-					return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+                    local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+					return utils.has_file(files) or utils.root_has_file(files)
 				end,
 				prefer_local = "node_modules/.bin",
 			}),
@@ -39,14 +41,15 @@ M.config = function()
 			-- nls.builtins.diagnostics.markdownlint.with({
 			-- 	filetypes = { "markdown" },
 			-- }),
-			nls.builtins.diagnostics.golangci_lint.with({
-				condition = function(utils)
-					return utils.root_has_file(".golangci.yml")
-				end,
-			}),
+			-- nls.builtins.diagnostics.golangci_lint.with({
+			-- 	condition = function(utils)
+			-- 		return utils.root_has_file(".golangci.yml")
+			-- 	end,
+			-- }),
 			nls.builtins.code_actions.eslint_d.with({
 				condition = function(utils)
-					return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+                    local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+					return utils.has_file(files) or utils.root_has_file(files)
 				end,
 				prefer_local = "node_modules/.bin",
 			}),
