@@ -11,24 +11,23 @@ M.config = function()
 		return
 	end
 
+	-- Helper to conditionally register eslint handlers only if eslint is
+	-- configured. If eslint is not configured for a project, it just fails.
+	local function has_eslint_configured(utils)
+		local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+		return utils.has_file(files) or utils.root_has_file(files)
+	end
+
 	nls.setup({
 		on_attach = require("lvim.lsp").common_on_attach,
 		debounce = 150,
 		save_after_format = false,
 		sources = {
 			nls.builtins.formatting.prettierd.with({
-				condition = function(utils)
-                    local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
-					return utils.has_file(files) or utils.root_has_file(files)
-				end,
-				prefer_local = "node_modules/.bin",
+				condition = has_eslint_configured,
 			}),
 			nls.builtins.formatting.eslint_d.with({
-				condition = function(utils)
-                    local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
-					return utils.has_file(files) or utils.root_has_file(files)
-				end,
-				prefer_local = "node_modules/.bin",
+				condition = has_eslint_configured,
 			}),
 			nls.builtins.formatting.stylua,
 			nls.builtins.formatting.black.with({ extra_args = { "--fast" }, filetypes = { "python" } }),
@@ -47,11 +46,7 @@ M.config = function()
 			-- 	end,
 			-- }),
 			nls.builtins.code_actions.eslint_d.with({
-				condition = function(utils)
-                    local files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
-					return utils.has_file(files) or utils.root_has_file(files)
-				end,
-				prefer_local = "node_modules/.bin",
+				condition = has_eslint_configured,
 			}),
 		},
 	})

@@ -33,3 +33,4 @@ npm --location=global list > npm-global.txt
 - <https://github.com/abzcoding/>
 - <https://lukesmith.xyz/>
 - <https://github.com/rwxrob>
+- <https://git.sr.ht/~whynothugo/dotfiles/>
