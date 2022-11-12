@@ -22,6 +22,12 @@ Install plugins with `prefix + I`
 npm --location=global list > npm-global.txt
 ```
 
+## Save terminal conf
+
+```sh
+dconf dump /org/gnome/terminal/legacy/profiles:/ > gnome-terminal-profiles.dconf
+```
+
 ## Resources
 
 - <https://systemcrafters.cc>
