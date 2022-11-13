@@ -64,11 +64,10 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Language Specific
 require("user.nls").config()
- 
+
 ---LSP
 require("user.lsp-config.general")
 require("user.lsp-config.tailwindcss")
-require("user.lsp-config.ligolang")
 require("lvim.lsp.manager").setup("prosemd_lsp")
 
 --- Additional Plugins
@@ -76,3 +75,5 @@ require("user.plugins").config()
 
 --- Custom key bindings
 require("user.keybindings").config()
+
+require("user.lsp-config.ligolang")
