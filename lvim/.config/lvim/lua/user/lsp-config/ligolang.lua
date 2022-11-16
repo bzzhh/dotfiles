@@ -1,7 +1,7 @@
 local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
-local server_name = "ligolang"
+local server_name = "ligo-squirrel"
 
 configs[server_name] = {
     default_config = {
