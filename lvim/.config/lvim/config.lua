@@ -1,6 +1,7 @@
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
+lvim.format_on_save = { timeout = 20000 }
 lvim.colorscheme = "gruvbox-material"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
