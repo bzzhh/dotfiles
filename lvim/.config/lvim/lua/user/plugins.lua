@@ -52,7 +52,6 @@ M.config = function()
 			end,
 		},
 		{ "reasonml-editor/vim-reason-plus" },
-		{ "lumiliet/vim-twig" },
 		{ "ocaml/vim-ocaml" },
 		{ "pbrisbin/vim-mkdir" },
 		{ "earthly/earthly.vim" },

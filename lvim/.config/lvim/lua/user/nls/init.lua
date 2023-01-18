@@ -23,8 +23,8 @@ M.config = function()
 		debounce = 150,
 		save_after_format = false,
 		sources = {
-			nls.builtins.formatting.prettierd.with({
-				condition = has_eslint_configured,
+			nls.builtins.formatting.prettier.with({
+				extra_filetypes = { "twig" },
 			}),
 			nls.builtins.formatting.eslint_d.with({
 				condition = has_eslint_configured,
@@ -37,6 +37,7 @@ M.config = function()
 			-- }),
 			nls.builtins.diagnostics.shellcheck,
 			nls.builtins.diagnostics.luacheck,
+			nls.builtins.diagnostics.twigcs,
 			-- nls.builtins.diagnostics.markdownlint.with({
 			-- 	filetypes = { "markdown" },
 			-- }),
