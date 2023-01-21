@@ -29,7 +29,7 @@ M.config = function()
 			nls.builtins.formatting.eslint_d.with({
 				condition = has_eslint_configured,
 			}),
-			nls.builtins.formatting.phpcbf,
+			nls.builtins.formatting.phpcsfixer,
 			nls.builtins.formatting.stylua,
 			nls.builtins.formatting.black.with({ extra_args = { "--fast" }, filetypes = { "python" } }),
 			nls.builtins.formatting.isort.with({ extra_args = { "--profile", "black" }, filetypes = { "python" } }),
@@ -39,7 +39,6 @@ M.config = function()
 			nls.builtins.diagnostics.shellcheck,
 			nls.builtins.diagnostics.luacheck,
 			nls.builtins.diagnostics.twigcs,
-			nls.builtins.diagnostics.phpcs,
 			-- nls.builtins.diagnostics.markdownlint.with({
 			-- 	filetypes = { "markdown" },
 			-- }),
