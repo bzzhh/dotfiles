@@ -32,8 +32,13 @@ alias \
 
 alias magit="nvim -c MagitOnly"
 
+# lldb
+alias codelldb=~/.var/app/com.visualstudio.code/data/vscode/extensions/vadimcn.vscode-lldb-1.8.1/adapter/codelldb
+
 # php
-alias sf=symfony
+alias \
+    sf=symfony \
+    sfc="sf console"
 
 #tezos
 alias tc=octez-client

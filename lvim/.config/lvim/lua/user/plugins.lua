@@ -136,17 +136,32 @@ M.config = function()
 						},
 					},
 				}
-				--local extension_path = vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.7.3/"
-
-				--local codelldb_path = extension_path .. "adapter/codelldb"
-				--local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
-
-				--opts.dap = {
-				--        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-				--}
 				rust_tools.setup(opts)
 			end,
 			ft = { "rust", "rs" },
+		},
+		{
+			"zbirenbaum/copilot.lua",
+			event = { "VimEnter" },
+			config = function()
+				vim.defer_fn(function()
+					require("copilot").setup({
+						plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+					})
+				end, 100)
+			end,
+		},
+		{
+			"zbirenbaum/copilot-cmp",
+			event = "InsertEnter",
+			dependencies = { "zbirenbaum/copilot.lua" },
+			config = function()
+				vim.defer_fn(function()
+					require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+					require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+				end, 100)
+			end,
+			after = { "copilot.lua", "nvim-cmp" },
 		},
 	}
 end
