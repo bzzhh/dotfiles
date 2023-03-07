@@ -45,23 +45,13 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
--- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = {
-	"bash",
-	"c",
-	"javascript",
-	"json",
-	"lua",
-	"python",
-	"typescript",
-	"tsx",
-	"css",
-	"rust",
-	"java",
-	"yaml",
-}
+-- Automatically install missing parsers when entering buffer
+lvim.builtin.treesitter.auto_install = true
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
+
+-- always installed on startup, useful for parsers without a strict filetype
+lvim.builtin.treesitter.ensure_installed = { "comment", "markdown_inline", "regex" }
 lvim.builtin.treesitter.highlight.enable = true
 
 -- Language Specific
