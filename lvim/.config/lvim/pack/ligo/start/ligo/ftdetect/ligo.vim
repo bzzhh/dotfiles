@@ -1,3 +1,3 @@
-au BufNewFile,BufRead *.mligo setfiletype CameLIGO
-au BufNewFile,BufRead *.jsligo setfiletype JsLIGO
-au BufNewFile,BufRead *.ligo setfiletype PascaLIGO
+au BufNewFile,BufRead *.ligo setfiletype ligo
+au BufNewFile,BufRead *.pligo setfiletype ligo
+au BufNewFile,BufRead *.mligo setfiletype mligo
