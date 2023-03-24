@@ -60,6 +60,7 @@ require("user.nls").config()
 ---LSP
 require("user.lsp-config.general")
 require("user.lsp-config.tailwindcss")
+require("user.lsp-config.ligolang")
 require("lvim.lsp.manager").setup("prosemd_lsp")
 
 --- Additional Plugins
@@ -72,5 +73,3 @@ vim.api.nvim_set_keymap("i", "<C-f>", 'copilot#Accept("<CR>")', { expr = true, s
 
 --- Custom key bindings
 require("user.keybindings").config()
-
-require("user.lsp-config.ligolang")
