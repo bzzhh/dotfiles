@@ -1,169 +1,48 @@
-local M = {}
-
-M.config = function()
-	vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
-
-	lvim.plugins = {
-		{
-			"norcalli/nvim-colorizer.lua",
-			config = function()
-				require("user.colorizer").config()
-			end,
-			event = "BufRead",
-		},
-		{ "sainnhe/gruvbox-material" },
-		{ "towolf/vim-helm" },
-		{ "editorconfig/editorconfig-vim" },
-		{
-			"ray-x/lsp_signature.nvim",
-			config = function()
-				require("lsp_signature").on_attach()
-			end,
-			event = "InsertEnter",
-		},
-		{
-			"iamcco/markdown-preview.nvim",
-			run = "cd app && yarn install",
-		},
-		{
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("neoscroll").setup()
-			end,
-		},
-		{ "rescript-lang/vim-rescript" },
-		{ "jez/vim-better-sml" },
-		{
-			"folke/todo-comments.nvim",
-			event = "BufRead",
-			config = function()
-				require("todo-comments").setup()
-			end,
-		},
-		{
-			"folke/trouble.nvim",
-			cmd = "TroubleToggle",
-		},
-		{
-			"andymass/vim-matchup",
-			event = "CursorMoved",
-			config = function()
-				vim.g.matchup_matchparen_offscreen = { method = "popup" }
-			end,
-		},
-		{ "reasonml-editor/vim-reason-plus" },
-		{ "ocaml/vim-ocaml" },
-		{ "pbrisbin/vim-mkdir" },
-		{ "earthly/earthly.vim" },
-		{ "petobens/poet-v" },
-		{
-			"NTBBloodbath/rest.nvim",
-			requires = { "nvim-lua/plenary.nvim" },
-			config = function()
-				require("rest-nvim").setup({
-					-- Open request results in a horizontal split
-					result_split_horizontal = false,
-					-- Keep the http file buffer above|left when split horizontal|vertical
-					result_split_in_place = false,
-					-- Skip SSL verification, useful for unknown certificates
-					skip_ssl_verification = false,
-					-- Highlight request on run
-					highlight = {
-						enabled = true,
-						timeout = 150,
-					},
-					result = {
-						-- toggle showing URL, HTTP info, headers at top the of result window
-						show_url = true,
-						show_http_info = true,
-						show_headers = true,
-					},
-					-- Jump to request line on run
-					jump_to_request = false,
-					env_file = ".env",
-					custom_dynamic_variables = {},
-					yank_dry_run = true,
-				})
-			end,
-		},
-		{
-			"simrat39/rust-tools.nvim",
-			config = function()
-				local status_ok, rust_tools = pcall(require, "rust-tools")
-				if not status_ok then
-					return
-				end
-
-				local opts = {
-					tools = {
-						executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
-						reload_workspace_from_cargo_toml = true,
-						inlay_hints = {
-							auto = true,
-							only_current_line = false,
-							show_parameter_hints = true,
-							parameter_hints_prefix = "<-",
-							other_hints_prefix = "=>",
-							max_len_align = false,
-							max_len_align_padding = 1,
-							right_align = false,
-							right_align_padding = 7,
-							highlight = "Comment",
-						},
-						hover_actions = {
-							--border = {
-							--        { "╭", "FloatBorder" },
-							--        { "─", "FloatBorder" },
-							--        { "╮", "FloatBorder" },
-							--        { "│", "FloatBorder" },
-							--        { "╯", "FloatBorder" },
-							--        { "─", "FloatBorder" },
-							--        { "╰", "FloatBorder" },
-							--        { "│", "FloatBorder" },
-							--},
-							auto_focus = true,
-						},
-					},
-					server = {
-						on_attach = require("lvim.lsp").common_on_attach,
-						on_init = require("lvim.lsp").common_on_init,
-						settings = {
-							["rust-analyzer"] = {
-								checkOnSave = {
-									command = "clippy",
-								},
-							},
-						},
-					},
-				}
-				rust_tools.setup(opts)
-			end,
-			ft = { "rust", "rs" },
-		},
-		{
-			"zbirenbaum/copilot.lua",
-			event = { "VimEnter" },
-			config = function()
-				vim.defer_fn(function()
-					require("copilot").setup({
-						plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-					})
-				end, 100)
-			end,
-		},
-		{
-			"zbirenbaum/copilot-cmp",
-			event = "InsertEnter",
-			dependencies = { "zbirenbaum/copilot.lua" },
-			config = function()
-				vim.defer_fn(function()
-					require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-					require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-				end, 100)
-			end,
-			after = { "copilot.lua", "nvim-cmp" },
-		},
-	}
-end
-
-return M
+-- Additional Plugins
+lvim.plugins = {
+  "sainnhe/gruvbox-material",
+  "roobert/tailwindcss-colorizer-cmp.nvim",
+  "NvChad/nvim-colorizer.lua",
+  "folke/todo-comments.nvim",
+  "pbrisbin/vim-mkdir",
+  "simrat39/rust-tools.nvim",
+  "olexsmir/gopher.nvim",
+  "leoluz/nvim-dap-go",
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup {
+  --         plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+  --       }
+  --     end, 100)
+  --   end,
+  -- },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup {
+  --       formatters = {
+  --         insert_text = require("copilot_cmp.format").remove_existing,
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "dense-analysis/neural",
+  --   config = function()
+  --     require("neural").setup {
+  --       source = {
+  --         openai = {
+  --           api_key = os.getenv "OPENAI_API_KEY",
+  --         },
+  --       },
+  --     }
+  --   end,
+  --   dependencies = {
+  --     "muniftanjim/nui.nvim",
+  --     "elpiloto/significant.nvim",
+  --   },
+  -- },
+}
