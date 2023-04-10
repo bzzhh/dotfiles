@@ -1,4 +1,0 @@
-{
-  "Lua.diagnostics.enable": false,
-  "Lua.diagnostics.globals": ["vim", "lvim"]
-}

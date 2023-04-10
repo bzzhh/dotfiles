@@ -107,7 +107,7 @@ autoload edit-command-line; zle -N edit-command-line
 [ ! -t 0 ] && xset r rate 210 40
 
 # Environment variables set everywhere
-export EDITOR="lvim"
+export EDITOR="nvim"
 export BROWSER="firefox"
 
 # remap caps to escape
