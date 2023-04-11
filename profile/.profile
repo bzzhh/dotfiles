@@ -39,7 +39,6 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/smartpy-cli:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.fnm:$PATH
-export PATH=$HOME/.emacs-configs/doom/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
