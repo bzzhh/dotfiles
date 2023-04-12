@@ -20,7 +20,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins')
+require('lazy').setup 'plugins'
 require 'user.options'
 require 'user.keymaps'
 require 'user.highlight'
@@ -83,7 +83,9 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-
+  intelephense = {
+    licenceKey = '~/.config/intelephense/license.txt',
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

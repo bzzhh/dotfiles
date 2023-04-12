@@ -8,7 +8,8 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 alias \
     vim=nvim \
     nvimrc='nvim ~/.config/nvim/' \
-    nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+    nvim-lazy="NVIM_APPNAME=LazyVim nvim" \
+    nvim-chad="NVIM_APPNAME=NvChad nvim"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
