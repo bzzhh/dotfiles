@@ -1,4 +1,4 @@
-reload "user.plugins"
-reload "user.options"
-reload "user.lsp"
-reload "user.lsp-config.ligolang"
+require "user.plugins"
+require "user.options"
+require "user.lsp"
+require "user.lsp-config.ligolang"
