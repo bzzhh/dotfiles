@@ -44,7 +44,8 @@ alias codelldb=~/.var/app/com.visualstudio.code/data/vscode/extensions/vadimcn.v
 # php
 alias \
     sf=symfony \
-    sfc="sf console"
+    sfc="sf console" \
+    cake="./bin/cake"
 
 #tezos
 alias tc=octez-client
