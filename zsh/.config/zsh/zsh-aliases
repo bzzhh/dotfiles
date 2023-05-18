@@ -8,7 +8,7 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 alias \
     vim=nvim \
     nvimrc='nvim ~/.config/nvim/' \
-    nvim-kickstart="NVIM_APPNAME=kickstart nvim" \
+    nvim-kickstart="NVIM_APPNAME=KickstartNvim nvim" \
     nvim-lazy="NVIM_APPNAME=LazyVim nvim" \
     nvim-chad="NVIM_APPNAME=NvChad nvim"
 
