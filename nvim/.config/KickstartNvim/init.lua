@@ -83,9 +83,6 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  intelephense = {
-    licenceKey = '~/.config/intelephense/license.txt',
-  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
