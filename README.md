@@ -40,3 +40,4 @@ dconf dump /org/gnome/terminal/legacy/profiles:/ > gnome-terminal-profiles.dconf
 - <https://lukesmith.xyz/>
 - <https://github.com/rwxrob>
 - <https://git.sr.ht/~whynothugo/dotfiles/>
+- <https://github.com/dreamsofcode-io/tmux>
