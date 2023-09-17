@@ -4,14 +4,14 @@ local util = require("lspconfig.util")
 local server_name = "ligo_ls"
 local cmd = { "ligo", "lsp" }
 local root_files = {
-    ".ligoproject",
+    "esy.json",
 }
 
 if not configs[server_name] then
     configs[server_name] = {
         default_config = {
             cmd = cmd,
-            filetypes = { "ligo", "mligo" },
+            filetypes = { "jsligo", "ligo", "mligo" },
             root_dir = function(fname)
                 return util.root_pattern(unpack(root_files))(fname) or
                 util.find_git_ancestor(fname)

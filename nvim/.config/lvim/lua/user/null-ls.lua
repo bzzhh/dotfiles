@@ -9,7 +9,7 @@ formatters.setup {
   },
   {
     command = "prettierd",
-    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
+    filetypes = { "css", "typescript", "typescriptreact", "javascript", "javascriptreact" }
   },
   {
     command = "markdownlint",

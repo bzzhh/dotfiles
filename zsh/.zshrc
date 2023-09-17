@@ -8,22 +8,3 @@ source "$HOME/.config/zsh/.zshrc"
 # BEGIN SNIPPET: Platform.sh CLI configuration
 export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
-
-case "$(uname -s)" in
-
-Darwin)
-  export PATH="/usr/local/opt/libpq/bin:$PATH"
-	;;
-
-Linux)
-	;;
-esac
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-
-export PATH="$PATH:/home/steven/.foundry/bin"
-eval "$(direnv hook zsh)"

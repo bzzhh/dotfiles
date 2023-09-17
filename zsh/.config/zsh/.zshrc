@@ -99,10 +99,10 @@ export BROWSER="firefox"
 
 # fnm
 export PATH=/home/steven/.fnm:$PATH
-eval "`fnm env`"
-eval "$(rbenv init -)"
-
-# pnpm
-export PNPM_HOME="/home/steven/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+#eval "`fnm env`"
+#eval "$(rbenv init -)"
+#
+## pnpm
+#export PNPM_HOME="/home/steven/.local/share/pnpm"
+#export PATH="$PNPM_HOME:$PATH"
 # pnpm end

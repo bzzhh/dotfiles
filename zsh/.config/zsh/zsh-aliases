@@ -53,8 +53,9 @@ alias tc=octez-client
 alias mc="octez-client --mode mockup --base-dir /tmp/mockup"
 # alias refresh-ligo="docker rmi -f $(docker images 'ligolang/ligo' -a -q)"
 alias refresh-sandbox="docker rmi -f $(docker images 'oxheadalpha/flextesa:latest' -a -q)"
-alias rmi="docker rmi -f \$(docker images -qf dangling=true)"
-alias rmv="docker volume rm $(docker volume ls -qf dangling=true)"
+alias rmc="docker rm $(docker ps -aq)"
+alias rmi="docker rmi -f \$(docker images -q)"
+alias rmv="docker volume rm $(docker volume ls -q)"
 alias '?'=duck
 alias '??'=google
 alias lg=lazygit
