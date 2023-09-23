@@ -12,6 +12,12 @@ lsp.ensure_installed({
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
+lsp.configure('yamlls', {
+    on_attach = function(_, _)
+        vim.keymap.set("n", "<leader>f", '<cmd>!yq -iP %<CR>')
+    end
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
