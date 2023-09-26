@@ -18,6 +18,14 @@ lsp.configure('yamlls', {
     end
 })
 
+lsp.configure('ocamllsp', {
+    on_attach = function(_, bufnr)
+        if string.match(vim.api.nvim_buf_get_name(bufnr), ".re") then
+            vim.keymap.set("n", "<leader>f", '<cmd>!refmt --in-place %<CR>')
+        end
+    end
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
