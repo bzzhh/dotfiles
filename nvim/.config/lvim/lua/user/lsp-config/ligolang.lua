@@ -4,7 +4,7 @@ local util = require("lspconfig.util")
 local server_name = "ligo_ls"
 local cmd = { "ligo", "lsp" }
 local root_files = {
-    "esy.json",
+    "ligo.json",
 }
 
 if not configs[server_name] then

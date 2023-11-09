@@ -4,7 +4,7 @@ local util = require('lspconfig.util')
 local server_name = "ligo_ls"
 local cmd = { "ligo", "lsp" }
 local root_files = {
-    "esy.json",
+    "ligo.json",
 }
 
 configs[server_name] = {
