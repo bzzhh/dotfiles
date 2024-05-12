@@ -1,12 +1,8 @@
-require("lazy").setup({
+return {
     {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
     },
     {
         "numToStr/Comment.nvim",
@@ -16,7 +12,7 @@ require("lazy").setup({
     },
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.1",
+        tag = "0.1.6",
         dependencies = { { "nvim-lua/plenary.nvim" } },
     },
     "ellisonleao/gruvbox.nvim",
@@ -28,9 +24,9 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     {
         "VonHeikemen/lsp-zero.nvim",
-        branch = "v1.x",
+        branch = "v3.x",
         dependencies = {
-            -- LSP Support
+                        -- LSP Support
             { "neovim/nvim-lspconfig" }, -- Required
             { "williamboman/mason.nvim" }, -- Optional
             { "williamboman/mason-lspconfig.nvim" }, -- Optional
@@ -73,4 +69,4 @@ require("lazy").setup({
             },
         },
     },
-})
+}

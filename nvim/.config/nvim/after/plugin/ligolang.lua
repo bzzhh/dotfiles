@@ -1,3 +1,5 @@
+local lsp_zero = require('lsp-zero')
+
 local configs = require('lspconfig.configs')
 local util = require('lspconfig.util')
 
@@ -20,4 +22,5 @@ configs[server_name] = {
     },
 }
 
+lsp_zero.extend_lspconfig()
 configs[server_name].setup {}
