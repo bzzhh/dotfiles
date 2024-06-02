@@ -92,8 +92,9 @@ return {
       local ensure_installed = {
         "stylua",
         "lua_ls",
+        "intelephense",
         "delve",
-        -- "tailwind-language-server",
+        "tailwindcss-language-server",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
@@ -146,7 +147,7 @@ return {
         end,
         formatters_by_ft = {
           lua = { "stylua" },
-          php = { "prettier", "phpcbf" },
+          php = { "phpcbf", "prettier" },
         },
       }
     end,
