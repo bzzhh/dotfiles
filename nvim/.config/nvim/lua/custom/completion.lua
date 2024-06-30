@@ -40,6 +40,13 @@ cmp.setup.filetype({ "sql" }, {
   },
 })
 
+-- Setup Tw Bootstrap
+cmp.setup.filetype({ "html", "php" }, {
+  sources = {
+    { name = "cmp_bootstrap" },
+  },
+})
+
 local ls = require "luasnip"
 ls.config.set_config {
   history = false,

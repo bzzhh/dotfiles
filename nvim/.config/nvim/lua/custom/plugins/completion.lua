@@ -15,4 +15,9 @@ return {
       require "custom.completion"
     end,
   },
+  {
+    "rambhosale/cmp-bootstrap.nvim",
+    after = "nvim-cmp",
+    event = "InsertEnter",
+  },
 }
