@@ -9,6 +9,7 @@ local cmp = require "cmp"
 cmp.setup {
   sources = {
     { name = "nvim_lsp" },
+    { name = "cody" },
     { name = "path" },
     { name = "buffer" },
   },
@@ -27,7 +28,7 @@ cmp.setup {
   -- Enable luasnip to handle snippet expansion for nvim-cmp
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      vim.snippet.expand(args.body)
     end,
   },
 }
@@ -41,17 +42,12 @@ cmp.setup.filetype({ "sql" }, {
 })
 
 -- Setup Tw Bootstrap
-cmp.setup.filetype({ "html", "php" }, {
+cmp.setup.filetype({ "ctp", "html", "php" }, {
   sources = {
+    { name = "nvim_lsp" },
     { name = "cmp_bootstrap" },
   },
 })
-
-local ls = require "luasnip"
-ls.config.set_config {
-  history = false,
-  updateevents = "TextChanged,TextChangedI",
-}
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
   if ls.expand_or_jumpable() then

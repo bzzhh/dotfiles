@@ -12,12 +12,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
     },
     config = function()
-      require "custom.completion"
+      require "custom.cmp"
     end,
-  },
-  {
-    "rambhosale/cmp-bootstrap.nvim",
-    after = "nvim-cmp",
-    event = "InsertEnter",
   },
 }
