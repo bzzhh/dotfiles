@@ -28,8 +28,16 @@ npm --location=global list > npm-global.txt
 dconf dump /org/gnome/terminal/legacy/profiles:/ > gnome-terminal-profiles.dconf
 ```
 
+## Add phpcs standards
+
+```
+composer global require cakephp/cakephp-codesniffer
+~/.local/share/nvim/mason/bin/phpcbf --config-set installed_paths ~/.config/composer/vendor/cakephp/cakephp-codesniffer
+```
+
 ## Resources
 
+- <https://www.youtube.com/@teej_dv>
 - <https://systemcrafters.cc>
 - <https://www.lunarvim.org>
 - <https://www.youtube.com/c/ThePrimeagen>
