@@ -32,3 +32,5 @@ opt.updatetime = 50
 opt.colorcolumn = "80"
 
 opt.clipboard = "unnamed"
+
+vim.diagnostic.config { virtual_text = true }
