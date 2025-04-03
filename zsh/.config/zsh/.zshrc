@@ -92,7 +92,7 @@ autoload edit-command-line; zle -N edit-command-line
 
 # Environment variables set everywhere
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 # remap caps to escape
 [ ! -t 0 ] && setxkbmap -option caps:escape
